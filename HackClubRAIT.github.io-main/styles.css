@@ -164,7 +164,7 @@ nav {
   padding: 10px;
   position: sticky;
   top: 0;
-  /* z-index: 999; */
+  /* z-home: 999; */
 }
 .navbars {
   display: flex;
@@ -572,7 +572,7 @@ h1 {
   color: white;
   border-radius: 10px;
   width: auto;
-  z-index: 99999;
+  z-home: 99999;
   padding-bottom: 5px;
 }
 #team_img span {
@@ -586,7 +586,7 @@ h1 {
   padding: 10px;
   transform: translateX(-40px);
   visibility: hidden;
-  z-index: -2999;
+  z-home: -2999;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }
@@ -891,7 +891,7 @@ h1 {
     padding: 5px;
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-home: 999;
   }
   #team_img {
     width: fit-content;
