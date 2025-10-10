@@ -272,6 +272,7 @@ footer a {
   padding: 200px 5%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 h1 {
   color: #eb3750;
@@ -313,11 +314,12 @@ h1 {
 }
 #home_rait {
   height: 100%;
-  padding: 250px 5% 200px 5%;
+  padding: 250px 5% 300px 5%;
   color: white;
   display: flex;
   justify-content: space-between;
 }
+
 #home_vision {
   height: 100%;
   text-align: center;
@@ -493,7 +495,7 @@ h1 {
 }
 .g1,
 .g2 {
-  width: 15%;
+  width: auto;
   display: flex;
   flex-direction: column;
   padding: 10px;
