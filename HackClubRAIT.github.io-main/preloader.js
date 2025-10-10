@@ -5,5 +5,5 @@ window.onload = function(){
         loaderContainer.style.opacity = "0";
         loaderContainer.style.pointerEvents = "none";
         bodyTag.classList.replace("no_scroll_bar_visible","scroll_bar_visible");
-    }, 5000);
+    }, 1000);
 }

@@ -6,7 +6,7 @@
 /*!------------------Outermost Loader Container-------------------------*/
 #loader_fixed_container{
     position: fixed;
-    z-home: 9999999 ;
+    z-index: 9999999 ;
     overflow-y: hidden !important;
     overflow-x: hidden !important;
     opacity: 1;
@@ -63,7 +63,7 @@
         height: 10px;
         border-radius: 50%;
         background: white;
-        z-home: 10;
+        z-index: 10;
         box-shadow: 0 0 10px white,
                     0 0 20px white,
                     0 0 30px white,
@@ -77,7 +77,7 @@
     border-radius: 50%;
     box-shadow: 0px 0px 16px rgba(255, 255, 255, .3);
     backdrop-filter: blur(16px);
-    z-home: 9999 !important;
+    z-index: 9999 !important;
 } */
 @keyframes rotateAnimate {
     0%{

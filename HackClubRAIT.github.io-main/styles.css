@@ -164,7 +164,7 @@ nav {
   padding: 10px;
   position: sticky;
   top: 0;
-  /* z-home: 999; */
+  /* z-index: 999; */
 }
 .navbars {
   display: flex;
@@ -263,6 +263,24 @@ footer a {
 .scroll_bar_visible::-webkit-scrollbar-thumb {
   background-color: #eb3750;
 }
+
+/* Full-screen overlay */
+#loader_fixed_container{
+  position: fixed;      /* <— pin to viewport */
+  inset: 0;             /* top/right/bottom/left: 0 */
+  background: #0f0f10;  /* solid bg so content doesn't show through */
+  display: grid;
+  place-items: center;
+  z-index: 9999;        /* <— above everything */
+  opacity: 1;           /* start visible */
+  transition: opacity .3s ease; /* smooth fade */
+}
+
+/*lock scroll while loader is visible*/
+.no_scroll_bar_visible { overflow: hidden; }
+
+/*restore scroll after loader fades out */
+.scroll_bar_visible   { overflow: auto; }
 
 /* Content changes of about section */
 #home_about {
@@ -572,7 +590,7 @@ h1 {
   color: white;
   border-radius: 10px;
   width: auto;
-  z-home: 99999;
+  z-index: 99999;
   padding-bottom: 5px;
 }
 #team_img span {
@@ -586,7 +604,7 @@ h1 {
   padding: 10px;
   transform: translateX(-40px);
   visibility: hidden;
-  z-home: -2999;
+  z-index: -2999;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }
@@ -891,7 +909,7 @@ h1 {
     padding: 5px;
     position: sticky;
     top: 0;
-    z-home: 999;
+    z-index: 999;
   }
   #team_img {
     width: fit-content;
