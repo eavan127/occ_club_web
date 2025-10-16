@@ -72,7 +72,7 @@
         </div>
     </nav>
     <div class="contributor_svg_section">
-        <!-- height="505.29587" -->
+        
         <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"
             viewBox="0 0 936.13137 505.29587" xmlns:xlink="http://www.w3.org/1999/xlink">
             <path
@@ -436,6 +436,9 @@
                 transform="translate(-131.93432 -197.35206)" fill="#2f2e41" />
 
         </svg>
+
+
+
         <div class="contributor_text">
             <h2>Building Our Community</h2>
             <h4>Meet our Committees</h4>
@@ -452,29 +455,24 @@
 <script>
     const contributorBlockContainer = document.getElementById('contributor');
     const searchBar = document.getElementById("search");
-    // console.log(searchBar)
     let contributorsInfoResponse = [];
-    // console.log(contributorsInfoResponse)
-
 
     searchBar.addEventListener('keyup', (input_value) => {
-        //to convert the given input into lowercase
         const inputValue = input_value.target.value.toLowerCase();
-        // console.log(inputValue)
         const findContributors = contributorsInfoResponse.filter((response) => {
             return response.login.toLowerCase().includes(inputValue);
         });
         showContributorsInfo(findContributors);
-    })
+    });
+
     const getContributorsInfo = async () => {
         try {
-            const res = await fetch('https://api.github.com/repos/HackClubRAIT/HackClubRAIT-Website/contributors?per_page=100');
+            // 👉 Replace GitHub API with your local JSON file
+            const res = await fetch('contributer.json');
             contributorsInfoResponse = await res.json();
-            // console.log(contributorsInfoResponse)
 
             showContributorsInfo(contributorsInfoResponse);
         } catch (fetch_error) {
-            // return fetch_error
             console.error(fetch_error);
         }
     };
@@ -483,17 +481,27 @@
         const cardInnerContent = contribInfos
             .map((info) => {
                 return `
-        <div class="userBlock"><a href="${info.html_url}" target="_blank_"><img src="${info.avatar_url}"/></a><div><h4>@${info.login}</h4><p>Contributions: ${info.contributions}</p></div></div>
-        `;
+                <div class="userBlock">
+                    <a href="${info.html_url || '#'}" target="_blank">
+                        <img src="${info.avatar_url}" alt="${info.login}">
+                    </a>
+                    <div>
+                        <h4>@${info.login}</h4>
+                        <p>Contributions: ${info.contributions}</p>
+                    </div>
+                </div>
+                `;
             })
             .join('');
         contributorBlockContainer.innerHTML = cardInnerContent;
     };
 
     getContributorsInfo();
+
     AOS.init({
         duration: 1200,
-    })
+    });
 </script>
+
 
 </html>
