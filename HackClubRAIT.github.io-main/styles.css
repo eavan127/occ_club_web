@@ -776,9 +776,9 @@ h1 {
   padding: 0%;
   margin: 0%;
   justify-content: center;
-  /* align-items: center;
-} */
+  /* align-items: center; */
 }
+
 #past ul li {
   margin: 10px;
   padding: 10px;
@@ -970,8 +970,8 @@ h1 {
   }
   /* #past ul li:hover{
     margin-top: 5px !important; 
-    margin-bottom: 5px !important;
-  } */
+    margin-bottom: 5px !important;*/
+  } 
 
   .opportunity .row .col-3 {
     width: 75%;
@@ -1488,4 +1488,39 @@ p {
 
 .btn-danger:hover {
 	box-shadow: 0 3px 6px rgba(255, 0, 0, 0.4);
+} 
+
+/* ===== LogoLoop (Footer Logo Animation) ===== */
+.ll-container {
+  position: relative;
+  width: 100%;
+  height: 80px;          /* adjust if needed */
+  overflow: hidden;
+  --ll-gap: 40px;        /* space between logos */
+  --ll-logo-h: 40px;     /* logo height */
+  margin-top: 20px;
 }
+
+.ll-track { display: flex; width: max-content; will-change: transform; transform: translate3d(0,0,0); }
+.ll-seq   { display: flex; align-items: center; }
+.ll-item  { flex: 0 0 auto; margin-right: var(--ll-gap); }
+
+.ll-item img {
+  height: var(--ll-logo-h);
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform .3s ease;
+}
+
+/* scale on hover */
+.ll-container.ll-scale .ll-item:hover img { transform: scale(1.15); }
+
+/* fade edges (match your dark footer) */
+.ll-container.ll-fade::before,
+.ll-container.ll-fade::after{
+  content:""; position:absolute; top:0; bottom:0; width:10%;
+  pointer-events:none; z-index:1;
+}
+.ll-container.ll-fade::before{ left:0;  background:linear-gradient(to right, #000, rgba(0,0,0,0)); }
+.ll-container.ll-fade::after { right:0; background:linear-gradient(to left,  #000, rgba(0,0,0,0)); }
