@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  font-family: "Silkscreen", cursive;
+  font-family: "Silkscreen";
   overflow-x: hidden;
   background-color: var(--grey) !important;
 }
@@ -956,25 +956,24 @@ h1 {
     flex-direction: column;
   }
 }
+
 @media (max-width: 600px) {
   #past ul li {
     margin: 10px;
     padding: 10px;
-    /* background-color: var(--orange); */
-    /* color: white; */
     font-size: 12px;
   }
+}
+
   /* #past ul li:hover{
     margin-top: 5px !important; 
     margin-bottom: 5px !important;*/
-  } 
 
   .opportunity .row .col-3 {
     width: 75%;
     display: flex;
     justify-content: space-around;
   }
-}
 @media (max-width: 1000px) {
   .contributor_text h2{
     font-size: 38px !important;
@@ -1197,9 +1196,7 @@ h1 {
   object-fit: cover;
   border-radius: 50%;
 }
-.myimg {
-  width: 100%;
-}
+
 @media only screen and (max-width: 1191px) {
   .myimg {
     width: 50%;
@@ -1478,7 +1475,6 @@ p {
 
 .btn-danger:hover {
 	box-shadow: 0 3px 6px rgba(255, 0, 0, 0.4);
-<<<<<<< HEAD
 } 
 
 /* ===== LogoLoop (Footer Logo Animation) ===== */
