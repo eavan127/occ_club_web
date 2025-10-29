@@ -1,288 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8" />
+
     <!-- CSS Files -->
-    <link href="preloader.css" rel="stylesheet" type="text/css">
-    <link href="styles.css" rel="stylesheet" type="text/css">
-    
+    <link href="preloader.css" rel="stylesheet" type="text/css" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+
     <!-- External CSS Libraries -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Favicon -->
-    <link rel="icon" href="./images/hackclubrait-logo.png">
-    
+    <link rel="icon" href="./images/hackclubrait-logo.png" />
+
     <title>Open Computing Club</title>
-</head>
+  </head>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<!-- <script>
-(function(){
-  const track = document.getElementById('llTrack');
-  const seq   = document.getElementById('llSeq');
-  if(!track || !seq) return; // safety
-
-  // Config
-  const SPEED = 100;             // px/sec (adjust if you want faster/slower)
-  const DIRECTION = 'left';      // 'left' or 'right'
-  const PAUSE_ON_HOVER = true;
-
-  function ensureCopies() {
-    // remove previous clones
-    [...track.querySelectorAll('.ll-seq')].forEach((ul,i)=>{ if(i>0) ul.remove(); });
-    const containerW = track.parentElement.clientWidth;
-    const seqW = seq.getBoundingClientRect().width || 1;
-    const copies = Math.ceil(containerW / seqW) + 2;
-    for (let i = 0; i < copies; i++) {
-      track.appendChild(i === 0 ? seq : seq.cloneNode(true));
-    }
-  }
-
-  let hovered = false;
-  if (PAUSE_ON_HOVER) {
-    track.parentElement.addEventListener('mouseenter', ()=> hovered = true);
-    track.parentElement.addEventListener('mouseleave', ()=> hovered = false);
-  }
-
-  let offset = 0, last = null;
-  function loop(t){
-    if(last == null) last = t;
-    const dt = (t - last) / 1000; last = t;
-    const v = hovered ? 0 : (DIRECTION==='left' ? SPEED : -SPEED);
-    offset += v * dt;
-
-    const oneW = seq.getBoundingClientRect().width || 1;
-    if (oneW > 0) {
-      offset = ((offset % oneW) + oneW) % oneW;
-      track.style.transform = `translate3d(${-offset}px,0,0)`;
-    }
-    requestAnimationFrame(loop);
-  }
-
-  function init(){
-    ensureCopies();
-    requestAnimationFrame(loop);
-  }
-
-  window.addEventListener('resize', ensureCopies);
-
-  // wait for images so widths are correct
-  const imgs = seq.querySelectorAll('img');
-  let remaining = imgs.length;
-  if (remaining === 0) init();
-  imgs.forEach(img=>{
-    if (img.complete) { if(--remaining===0) init(); }
-    else {
-      const done = ()=>{ if(--remaining===0) init(); };
-      img.addEventListener('load', done, {once:true});
-      img.addEventListener('error', done, {once:true});
-    }
-  });
-})();
-</script> -->
-
-=======
->>>>>>> 810c182e2c23b7591bc782811f89f4746a4fe12c
-=======
->>>>>>> 810c182e2c23b7591bc782811f89f4746a4fe12c
-
-=======
->>>>>>> d1a2912847ae7f816915b1edab3297ec8811984a
-<body class="no_scroll_bar_visible">
+  <body class="no_scroll_bar_visible">
     <!-- Loader -->
     <div id="loader_fixed_container">
-        <div class="loader_container">
-            <div class="web_logo">
-                <div class="border_loader"></div>
-                <img id="website_logo" src="images/hackclubrait_logo_bw.png" width="300" height="300" alt="OCC Logo" style="position: absolute; opacity: .2; border-radius: 50%; box-shadow: 0px 0px 16px rgba(255, 255, 255, .3); backdrop-filter: blur(16px); z-index: 9999 !important;">
-            </div>
-            
-            <div class="area">
-                <ul class="circles">
-                    <li></li><li></li><li></li><li></li><li></li>
-                    <li></li><li></li><li></li><li></li><li></li>
-                </ul>
-            </div>
-            
-            <div class="loader_content">
-                <div id="hourglass_svg_loader">
-                    <svg id="Hourglass_svg" width="93px" height="98px" viewBox="0 0 73 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <g id="hourglass">
-                            <path d="M63.8761664,86 C63.9491436,84.74063 64,83.4707791 64,82.1818182 C64,65.2090455 57.5148507,50.6237818 48.20041,44 C57.5148507,37.3762182 64,22.7909545 64,5.81818182 C64,4.52922091 63.9491436,3.25937 63.8761664,2 L10.1238336,2 C10.0508564,3.25937 10,4.52922091 10,5.81818182 C10,22.7909545 16.4851493,37.3762182 25.79959,44 C16.4851493,50.6237818 10,65.2090455 10,82.1818182 C10,83.4707791 10.0508564,84.74063 10.1238336,86 L63.8761664,86 Z" id="glass" fill="white"></path>
-                            <rect id="top-plate" fill="#4D4544" x="0" y="0" width="74" height="8" rx="2"></rect>
-                            <rect id="bottom-plate" fill="#4D4544" x="0" y="80" width="74" height="8" rx="2"></rect>
-                            <g id="top-sand" transform="translate(18, 21)">
-                                <clipPath id="top-clip-path" fill="white">
-                                    <rect x="0" y="0" width="38" height="21"></rect>
-                                </clipPath>
-                                <path fill="#dc3545" clip-path="url(#top-clip-path)" d="M38,0 C36.218769,7.51704545 24.818769,21 19,21 C13.418769,21 1.9,7.63636364 0,0 L38,0 Z"></path>
-                            </g>
-                            <g id="bottom-sand" transform="translate(18, 55)">
-                                <clipPath id="bottom-clip-path" fill="white">
-                                    <rect x="0" y="0" width="38" height="21"></rect>
-                                </clipPath>
-                                <g clip-path="url(#bottom-clip-path)">
-                                    <path fill="#dc3545" d="M0,21 L38,21 C36.1,13.3636364 24.581231,0 19,0 C13.181231,0 1.781231,13.4829545 0,21 Z"></path>
-                                </g>
-                            </g>
-                        </g>
-                    </svg>
-                </div>
-                <div class="loading_process">
-                    Loading<span class="dots"><span class="dot1">.</span><span class="dot2">.</span><span class="dot3">.</span></span>
-                </div>
-            </div>
+      <div class="loader_container">
+        <div class="web_logo">
+          <div class="border_loader"></div>
+          <img
+            id="website_logo"
+            src="images/hackclubrait_logo_bw.png"
+            width="300"
+            height="300"
+            alt="OCC Logo"
+            style="
+              position: absolute;
+              opacity: 0.2;
+              border-radius: 50%;
+              box-shadow: 0px 0px 16px rgba(255, 255, 255, 0.3);
+              backdrop-filter: blur(16px);
+              z-index: 9999 !important;
+            "
+          />
         </div>
+
+        <div class="area">
+          <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+
+        <div class="loader_content">
+          <div id="hourglass_svg_loader">
+            <svg
+              id="Hourglass_svg"
+              width="93px"
+              height="98px"
+              viewBox="0 0 73 88"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <g id="hourglass">
+                <path
+                  d="M63.8761664,86 C63.9491436,84.74063 64,83.4707791 64,82.1818182 C64,65.2090455 57.5148507,50.6237818 48.20041,44 C57.5148507,37.3762182 64,22.7909545 64,5.81818182 C64,4.52922091 63.9491436,3.25937 63.8761664,2 L10.1238336,2 C10.0508564,3.25937 10,4.52922091 10,5.81818182 C10,22.7909545 16.4851493,37.3762182 25.79959,44 C16.4851493,50.6237818 10,65.2090455 10,82.1818182 C10,83.4707791 10.0508564,84.74063 10.1238336,86 L63.8761664,86 Z"
+                  id="glass"
+                  fill="white"
+                ></path>
+                <rect
+                  id="top-plate"
+                  fill="#4D4544"
+                  x="0"
+                  y="0"
+                  width="74"
+                  height="8"
+                  rx="2"
+                ></rect>
+                <rect
+                  id="bottom-plate"
+                  fill="#4D4544"
+                  x="0"
+                  y="80"
+                  width="74"
+                  height="8"
+                  rx="2"
+                ></rect>
+                <g id="top-sand" transform="translate(18, 21)">
+                  <clipPath id="top-clip-path" fill="white">
+                    <rect x="0" y="0" width="38" height="21"></rect>
+                  </clipPath>
+                  <path
+                    fill="#dc3545"
+                    clip-path="url(#top-clip-path)"
+                    d="M38,0 C36.218769,7.51704545 24.818769,21 19,21 C13.418769,21 1.9,7.63636364 0,0 L38,0 Z"
+                  ></path>
+                </g>
+                <g id="bottom-sand" transform="translate(18, 55)">
+                  <clipPath id="bottom-clip-path" fill="white">
+                    <rect x="0" y="0" width="38" height="21"></rect>
+                  </clipPath>
+                  <g clip-path="url(#bottom-clip-path)">
+                    <path
+                      fill="#dc3545"
+                      d="M0,21 L38,21 C36.1,13.3636364 24.581231,0 19,0 C13.181231,0 1.781231,13.4829545 0,21 Z"
+                    ></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div class="loading_process">
+            Loading<span class="dots"
+              ><span class="dot1">.</span><span class="dot2">.</span
+              ><span class="dot3">.</span></span
+            >
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Navigation -->
     <nav class="nav navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="progress-container">
-            <div class="progress-bar" id="myBar"></div>
+      <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+      </div>
+      <a class="header" href="index.html">
+        <img id="logo" src="./images/hackclubrait-logo.png" alt="OCC Logo" />
+        <div class="logo_header">
+          <span style="color: #a8f0ff">Open Computing Club</span>
         </div>
-        <a class="header" href="index.html">
-            <img id="logo" src="./images/hackclubrait-logo.png" alt="OCC Logo">
-            <div class="logo_header">
-                <span style="color: #A8F0FF;">Open Computing Club</span>
-            </div>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="nav navbars navbar-nav ml-auto">
-                <li><a href="index.html" class="active hover-line nav navbars">HOME</a></li>
-                <li><a href="ongoing.html" class="hover-line nav navbars">ONGOING EVENTS</a></li>
-                <li><a href="past.html" class="hover-line nav navbars">PAST EVENTS</a></li>
-                <li><a href="team.html" class="hover-line nav navbars">HIGH COMMITTEES</a></li>
-                <li><a href="contributer.html" class="hover-line nav navbars">COMMITTEES</a></li>
-                <li><a href="blogs.html" class="hover-line nav navbars">BLOGS</a></li>
-                <li><a href="contact.html" class="hover-line nav navbars">CONTACT US</a></li>
-            </ul>
-        </div>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbars navbar-nav ml-auto">
+          <li>
+            <a href="index.html" class="active hover-line nav navbars">HOME</a>
+          </li>
+          <li>
+            <a href="ongoing.html" class="hover-line nav navbars"
+              >ONGOING EVENTS</a
+            >
+          </li>
+          <li>
+            <a href="past.html" class="hover-line nav navbars">PAST EVENTS</a>
+          </li>
+          <li>
+            <a href="team.html" class="hover-line nav navbars"
+              >HIGH COMMITTEES</a
+            >
+          </li>
+          <li>
+            <a href="contributer.html" class="hover-line nav navbars"
+              >COMMITTEES</a
+            >
+          </li>
+          <li><a href="blogs.html" class="hover-line nav navbars">BLOGS</a></li>
+          <li>
+            <a href="contact.html" class="hover-line nav navbars">CONTACT US</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <div id="home_welcome" data-aos="zoom-out">
-        <div id="banner_data">
-            <h1 id="hackclub">Open Computing Club</h1><br>
-            <h1 id="hackclub-des">Initiative for students by students</h1>
-        </div>
+      <div id="banner_data">
+        <h1 id="hackclub">Open Computing Club</h1>
+        <br />
+        <h1 id="hackclub-des">Initiative for students by students</h1>
+      </div>
     </div>
 
     <div class="context"></div>
 
     <div class="area">
-        <ul class="circles">
-            <li></li><li></li><li></li><li></li><li></li>
-            <li></li><li></li><li></li><li></li><li></li>
-        </ul>
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </div>
 
     <!-- About Section -->
-    <div id="home_about" style="transform: translateY(10%);">
-        <div class="content" data-aos="fade-right">
-            <h1><b>About OCC</b></h1><br>
-            <h3>Open Computing Club (OCC) is an official student society for all technology students in UTP. It is a platform that hopes to provide a strong community among technology students and be bridge between students and key industry players & organisations.</h3>
-        </div>
-        <div class="img-box">
-            <img class="home_illus" src="images/open source.svg" alt="Open Source Illustration">
-        </div>
+    <div id="home_about" style="transform: translateY(10%)">
+      <div class="content" data-aos="fade-right">
+        <h1><b>About OCC</b></h1>
+        <br />
+        <h3>
+          Open Computing Club (OCC) is an official student society for all
+          technology students in UTP. It is a platform that hopes to provide a
+          strong community among technology students and be bridge between
+          students and key industry players & organisations.
+        </h3>
+      </div>
+      <div class="img-box">
+        <img
+          class="home_illus"
+          src="images/open source.svg"
+          alt="Open Source Illustration"
+        />
+      </div>
     </div>
 
     <!-- Mission Section -->
     <div id="home_rait">
-        <div class="img-box1">
-            <img class="home_illus1" src="images/team work.svg" alt="Team Work Illustration">
-        </div>
-        <div class="content" data-aos="fade-left">
-            <h1><b>Open Computing Club</b></h1><br>
-            <h3>Whether you're a beginner or a seasoned coder, this is your space to <b>learn, build, and collaborate</b> on open-source projects. We organize hands-on workshops and mentorship programs to help students sharpen their computing skills and contribute meaningfully to the tech community.</h3>
-        </div>
+      <div class="img-box1">
+        <img
+          class="home_illus1"
+          src="images/team work.svg"
+          alt="Team Work Illustration"
+        />
+      </div>
+      <div class="content" data-aos="fade-left">
+        <h1><b>Open Computing Club</b></h1>
+        <br />
+        <h3>
+          Whether you're a beginner or a seasoned coder, this is your space to
+          <b>learn, build, and collaborate</b> on open-source projects. We
+          organize hands-on workshops and mentorship programs to help students
+          sharpen their computing skills and contribute meaningfully to the tech
+          community.
+        </h3>
+      </div>
     </div>
 
     <!-- Vision Section -->
     <div id="home_vision">
-        <h1><b>Vision</b></h1><br>
-        <div data-aos="fade-up">
-            <h2>Our aim is to flourish <br>the thrilling open-source culture<br> to create a favorable environment for <br><b>open-source contributions.</b></h2><br><br>
-            <h2>Let's come together and learn, interact, and grow. 💻</h2>
-        </div><br>
+      <h1><b>Vision</b></h1>
+      <br />
+      <div data-aos="fade-up">
+        <h2>
+          Our aim is to flourish <br />the thrilling open-source culture<br />
+          to create a favorable environment for <br /><b
+            >open-source contributions.</b
+          >
+        </h2>
+        <br /><br />
+        <h2>Let's come together and learn, interact, and grow. 💻</h2>
+      </div>
+      <br />
     </div>
 
     <!-- Back to Top Button -->
     <div id="navtbut" class="disappear">
-        <a href="#top">
-            <button id="buttontop">
-                <i class="material-icons">arrow_upward</i>
-            </button>
-        </a>
+      <a href="#top">
+        <button id="buttontop">
+          <i class="material-icons">arrow_upward</i>
+        </button>
+      </a>
     </div>
 
     <!-- Footer -->
     <footer>
-        <div class="footer">
-            <div class="column1">
-                <div class="footerHeading">
-                    <div class="footerHeading1">
-                        <h1>Open Computing Club</h1>
-                        <div class="logo-img">
-                            <img src="./images/hackclubrait-logo.png" alt="OCC Logo">
-                        </div>
-                    </div>
-                    <p>Initiative for students by students</p>
-                </div>
-                <div class="contactLink">
-                    <div class="wrapper">
-                        <ul>
-                            <a href="https://github.com/HackClubRAIT" target="_blank" rel="noopener"><li class="github"><i class="fa fa-github fa-2x" aria-hidden="true"></i></li></a>
-                            <a href="https://www.instagram.com/utp.occ?igsh=MWNtZnFpYjJxNjJpcA==" target="_blank" rel="noopener"><li class="instagram"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></li></a>
-                            <a href="https://www.linkedin.com/company/hack-club-rait" target="_blank" rel="noopener"><li class="linkedin"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></li></a>
-                            <a href="mailto:hackclubrait@gmail.com"><li class="gmail"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></li></a>
-                            <a href="https://discord.com/channels/890260394701103135/910803536995053568" target="_blank" rel="noopener"><li class="discord"><i class="fab fa-discord fa-2x" aria-hidden="true"></i></li></a>
-                        </ul>
-                    </div>
-                </div>
+      <div class="footer">
+        <div class="column1">
+          <div class="footerHeading">
+            <div class="footerHeading1">
+              <h1>Open Computing Club</h1>
+              <div class="logo-img">
+                <img src="./images/hackclubrait-logo.png" alt="OCC Logo" />
+              </div>
             </div>
-            <div class="column2">
-                <h2>Useful Links</h2>
-                <div class="footerLinks">
-                    <div class="g1">
-                        <a href="index.html">HOME</a>
-                        <a href="ongoing.html">ONGOING EVENTS</a>
-                        <a href="past.html">PAST EVENTS</a>
-                    </div>
-                    <div class="g2">
-                        <a href="team.html">HIGH COMMITTEES</a>
-                        <a href="contributer.html">COMMITTEES</a>
-                        <a href="contact.html">CONTACT US</a>
-                    </div>
-                </div>
+            <p>Initiative for students by students</p>
+          </div>
+          <div class="contactLink">
+            <div class="wrapper">
+              <ul>
+                <a
+                  href="https://github.com/HackClubRAIT"
+                  target="_blank"
+                  rel="noopener"
+                  ><li class="github">
+                    <i class="fa fa-github fa-2x" aria-hidden="true"></i></li
+                ></a>
+                <a
+                  href="https://www.instagram.com/utp.occ?igsh=MWNtZnFpYjJxNjJpcA=="
+                  target="_blank"
+                  rel="noopener"
+                  ><li class="instagram">
+                    <i class="fa fa-instagram fa-2x" aria-hidden="true"></i></li
+                ></a>
+                <a
+                  href="https://www.linkedin.com/company/hack-club-rait"
+                  target="_blank"
+                  rel="noopener"
+                  ><li class="linkedin">
+                    <i
+                      class="fa fa-linkedin-square fa-2x"
+                      aria-hidden="true"
+                    ></i></li
+                ></a>
+                <a href="mailto:hackclubrait@gmail.com"
+                  ><li class="gmail">
+                    <i class="fa fa-envelope fa-2x" aria-hidden="true"></i></li
+                ></a>
+                <a
+                  href="https://discord.com/channels/890260394701103135/910803536995053568"
+                  target="_blank"
+                  rel="noopener"
+                  ><li class="discord">
+                    <i class="fab fa-discord fa-2x" aria-hidden="true"></i></li
+                ></a>
+              </ul>
             </div>
+          </div>
         </div>
-        <br>
-        <h5 style="margin: 0px;">Made with 💝 by Open Computing Club</h5>
-        <p style="display: flex; justify-content: center; padding-bottom: 1%; font-size: 15px;">© Open Computing Club 2025</p>
+        <div class="column2">
+          <h2>Useful Links</h2>
+          <div class="footerLinks">
+            <div class="g1">
+              <a href="index.html">HOME</a>
+              <a href="ongoing.html">ONGOING EVENTS</a>
+              <a href="past.html">PAST EVENTS</a>
+            </div>
+            <div class="g2">
+              <a href="team.html">HIGH COMMITTEES</a>
+              <a href="contributer.html">COMMITTEES</a>
+              <a href="contact.html">CONTACT US</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <h5 style="margin: 0px">Made with 💝 by Open Computing Club</h5>
+      <p
+        style="
+          display: flex;
+          justify-content: center;
+          padding-bottom: 1%;
+          font-size: 15px;
+        "
+      >
+        © Open Computing Club 2025
+      </p>
     </footer>
 
     <!-- JavaScript Libraries (Load in correct order) -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- Preloader Script -->
@@ -290,38 +409,41 @@
 
     <!-- Page Scripts -->
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1200,
-        });
+      // Initialize AOS
+      AOS.init({
+        duration: 1200,
+      });
 
-        // Progress bar on scroll
-        window.onscroll = function() {
-            myFunction();
-        };
+      // Progress bar on scroll
+      window.onscroll = function () {
+        myFunction();
+      };
 
-        document.getElementById("myBar").style.background = "#EB384E";
+      document.getElementById("myBar").style.background = "#EB384E";
 
-        function myFunction() {
-            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            var scrolled = (winScroll / height) * 100;
-            document.getElementById("myBar").style.width = scrolled + "%";
+      function myFunction() {
+        var winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        var height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        document.getElementById("myBar").style.width = scrolled + "%";
+      }
+
+      // Back to top button
+      var navtbut = document.getElementById("navtbut");
+
+      var navToTop = function () {
+        var y = window.scrollY;
+        if (y >= 220) {
+          navtbut.className = "appear";
+        } else {
+          navtbut.className = "disappear";
         }
+      };
 
-        // Back to top button
-        var navtbut = document.getElementById("navtbut");
-
-        var navToTop = function() {
-            var y = window.scrollY;
-            if (y >= 220) {
-                navtbut.className = "appear";
-            } else {
-                navtbut.className = "disappear";
-            }
-        };
-
-        window.addEventListener("scroll", navToTop);
+      window.addEventListener("scroll", navToTop);
     </script>
-</body>
+  </body>
 </html>
