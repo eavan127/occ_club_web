@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  font-family: "Silkscreen", cursive;
+  font-family: "Silkscreen";
   overflow-x: hidden;
   background-color: var(--grey) !important;
 }
