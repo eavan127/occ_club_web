@@ -883,7 +883,7 @@ h1 {
 
 @media (max-width: 1150px) {
   .navbar ul li {
-    padding: 12px !important;
+    padding: 10px !important;
   }
 }
 @media (max-width: 1300px) {
