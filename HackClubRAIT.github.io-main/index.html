@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- CSS Files -->
     <link href="preloader.css" rel="stylesheet" type="text/css" />
@@ -57,7 +57,7 @@
             src="images/hackclubrait_logo_bw.png"
             width="300"
             height="300"
-            alt="OCC Logo"
+            alt="Open Computing Club Logo"
             style="
               position: absolute;
               opacity: 0.2;
@@ -159,7 +159,7 @@
         <div class="progress-bar" id="myBar"></div>
       </div>
       <a class="header" href="index.html">
-        <img id="logo" src="./images/hackclubrait-logo.png" alt="OCC Logo" />
+        <img id="logo" src="./images/hackclubrait-logo.png" alt="Open Computing Club Logo" />
         <div class="logo_header">
           <span style="color: #a8f0ff">Open Computing Club</span>
         </div>
@@ -233,7 +233,7 @@
     </div>
 
     <!-- About Section -->
-    <div id="home_about" style="transform: translateY(10%)">
+    <div id="home_about" style="padding-top: 10%">
       <div class="content" data-aos="fade-right">
         <h1><b>About OCC</b></h1>
         <br />
@@ -309,7 +309,7 @@
             <div class="footerHeading1">
               <h1>Open Computing Club</h1>
               <div class="logo-img">
-                <img src="./images/hackclubrait-logo.png" alt="OCC Logo" />
+                <img src="./images/hackclubrait-logo.png" alt="Open Computing Club Logo" />
               </div>
             </div>
             <p>Initiative for students by students</p>
@@ -346,7 +346,7 @@
                     <i class="fa fa-envelope fa-2x" aria-hidden="true"></i></li
                 ></a>
                 <a
-                  href="https://discord.com/channels/890260394701103135/910803536995053568"
+                  href="https://discord.gg/YOUR_INVITE_CODE"
                   target="_blank"
                   rel="noopener"
                   ><li class="discord">
@@ -409,41 +409,53 @@
 
     <!-- Page Scripts -->
     <script>
-      // Initialize AOS
-      AOS.init({
-        duration: 1200,
-      });
+      // Wait for DOM to be ready before executing
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize AOS
+        AOS.init({
+          duration: 1200,
+        });
 
-      // Progress bar on scroll
-      window.onscroll = function () {
-        myFunction();
-      };
-
-      document.getElementById("myBar").style.background = "#EB384E";
-
-      function myFunction() {
-        var winScroll =
-          document.body.scrollTop || document.documentElement.scrollTop;
-        var height =
-          document.documentElement.scrollHeight -
-          document.documentElement.clientHeight;
-        var scrolled = (winScroll / height) * 100;
-        document.getElementById("myBar").style.width = scrolled + "%";
-      }
-
-      // Back to top button
-      var navtbut = document.getElementById("navtbut");
-
-      var navToTop = function () {
-        var y = window.scrollY;
-        if (y >= 220) {
-          navtbut.className = "appear";
-        } else {
-          navtbut.className = "disappear";
+        // Set progress bar color
+        var progressBar = document.getElementById("myBar");
+        if (progressBar) {
+          progressBar.style.background = "#EB384E";
         }
-      };
 
-      window.addEventListener("scroll", navToTop);
+        // Progress bar on scroll
+        window.onscroll = function () {
+          myFunction();
+        };
+
+        function myFunction() {
+          var winScroll =
+            document.body.scrollTop || document.documentElement.scrollTop;
+          var height =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+          var scrolled = (winScroll / height) * 100;
+          var bar = document.getElementById("myBar");
+          if (bar) {
+            bar.style.width = scrolled + "%";
+          }
+        }
+
+        // Back to top button
+        var navtbut = document.getElementById("navtbut");
+
+        var navToTop = function () {
+          var y = window.scrollY;
+          if (navtbut) {
+            if (y >= 220) {
+              navtbut.className = "appear";
+            } else {
+              navtbut.className = "disappear";
+            }
+          }
+        };
+
+        window.addEventListener("scroll", navToTop);
+      });
     </script>
   </body>
 </html>
