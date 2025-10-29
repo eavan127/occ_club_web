@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
 
 :root {
@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  font-family: "Silkscreen", cursive;
+  font-family: "Silkscreen";
   overflow-x: hidden;
   background-color: var(--grey) !important;
 }
@@ -219,7 +219,6 @@ nav {
   text-decoration: none !important;
 }
 .header {
-  font-family: "Dancing Script", cursive;
   font-weight: 600;
   font-size: 2.1em;
   padding-left: 10px;
@@ -326,7 +325,6 @@ h1 {
   #hackclub {
     font-size: 10em;
     color: #A8F0FF;
-    font-family: "Londrina Outline", cursive;
     font-weight: bold;
   }
 }
@@ -809,8 +807,6 @@ h1 {
 }
 #opp_card {
   background-color: white;
-  font-family: "Abel", sans-serif;
-  font-family: "Prompt", sans-serif;
   text-align: center;
   margin: 50px;
   padding: 20px;
@@ -1073,7 +1069,6 @@ h1 {
 }
 .contributor_text h2{
   color: white !important;
-  font-family: "Londrina Outline",cursive;
   font-size: 3rem ;
 }.contributor_text h4{
   color: white !important;
@@ -1110,9 +1105,8 @@ h1 {
 }
 .contributor_header{
   color: #A8F0FF;
-  font-family: "Londrina Outline",cursive;
   text-align: center;
-  font-size: 36px;
+  font-size: 20px;
   font-weight: bold;
   text-shadow: 0px 0px 10px #A8F0FF;
   margin-bottom: 0px;
@@ -1428,7 +1422,6 @@ div.contact div.contact_form .follow .social_link a:hover {
 	margin-top: 10rem;
 	font-size: 2.5rem;
 	font-weight: 600;
-  font-family: "Poppins", sans-serif;
 	color: #ffffff;
 	letter-spacing: 0.2px;
 	text-align: center;
@@ -1467,25 +1460,23 @@ div.contact div.contact_form .follow .social_link a:hover {
 }
 
 .card h6 {
-	font-size: 22px;
-  font-family: "Poppins", sans-serif;
+	font-size: 20px;
 	margin: 1.2rem 0 0;
 	color: #A8F0FF;
 }
 
 p {
 	font-size: 16px;
-	font-family: "Poppins", sans-serif;
 	line-height: 25px;
 	color: #495464;
 }
 
 .btn-danger {
 	margin: 0.5rem 0 0.5rem;
-	font-family: "Poppins", sans-serif;
 	box-shadow: 0 2px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
 }
 
 .btn-danger:hover {
 	box-shadow: 0 3px 6px rgba(255, 0, 0, 0.4);
 }
+
