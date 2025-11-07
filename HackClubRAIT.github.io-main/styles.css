@@ -827,6 +827,7 @@ h1 {
   border-radius: 10px;
   position: relative;
   top: 80px; /* moves card down visually */
+  font-family: 'Kameron', serif;
 }
 
 
