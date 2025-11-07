@@ -209,6 +209,7 @@ nav {
   height: 60px;
   border-radius: 50%;
   transition: all 0.5s ease-in;
+  margin-top: -10px; /* move upward slightly */
 }
 
 #logo:hover {
@@ -222,7 +223,7 @@ nav {
   font-weight: 600;
   font-size: 1.3em;
   padding-left: 10px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .logo_header {
   padding-left: 17px;
