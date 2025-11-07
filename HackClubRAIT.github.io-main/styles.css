@@ -330,6 +330,7 @@ h1 {
     font-weight: bold;
   }
 }
+
 #home_rait {
   height: 100%;
   padding: 250px 5% 300px 5%;
@@ -338,6 +339,12 @@ h1 {
   justify-content: space-between;
   margin-top: -50px;
 }
+
+#home_rait .content {
+  position: relative;
+  top: -30px; /* move upward a bit */
+}
+
 
 #home_vision {
   height: 100%;
@@ -922,10 +929,7 @@ h1 {
     min-width: 100%;
     width: 100%;
   }
-  #home_rait {
-    flex-direction: column;
-    padding: 40% 5% 20% 5%;
-  }
+
   .contributor_svg_section{
     padding-top: 20% !important;
   }
