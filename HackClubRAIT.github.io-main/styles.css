@@ -293,6 +293,7 @@ footer a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: 'EB Garamond', serif;
 }
 h1 {
   color: #A8F0FF;
@@ -343,7 +344,8 @@ h1 {
 
 #home_rait .content {
   position: relative;
-  top: -30px; /* move upward a bit */
+  top: 30px; /* move upward a bit */
+  font-family: 'EB Garamond', serif;
 }
 
 
@@ -353,6 +355,7 @@ h1 {
   padding: 5%;
   padding: 200px 5%;
   background-color: white;
+  font-family: 'EB Garamond', serif;
 }
 #banner_data {
   position: relative;
