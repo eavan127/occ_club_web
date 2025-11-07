@@ -822,7 +822,11 @@ h1 {
   margin: 50px;
   padding: 20px;
   border-radius: 10px;
+  position: relative;
+  top: 80px; /* moves card down visually */
 }
+
+
 
 #team_img .fa-linkedin:hover {
   /* background: -moz-linear-gradient(45deg, #9c2bff  0%,#248aff 25%,#26ebe1 50%,#1cd91c 75%,#26bc18 100%); 
