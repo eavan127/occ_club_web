@@ -220,8 +220,9 @@ nav {
 }
 .header {
   font-weight: 600;
-  font-size: 2.1em;
+  font-size: 1.3em;
   padding-left: 10px;
+  margin-top: 20px;
 }
 .logo_header {
   padding-left: 17px;
@@ -247,6 +248,7 @@ footer a {
   text-align: center;
   padding: 20px;
   padding-top: 130px;
+  font-size: 10px;
 }
 /*scrollbar changes*/
 .no_scroll_bar_visible::-webkit-scrollbar {
@@ -334,6 +336,7 @@ h1 {
   color: white;
   display: flex;
   justify-content: space-between;
+  margin-top: -50px;
 }
 
 #home_vision {
