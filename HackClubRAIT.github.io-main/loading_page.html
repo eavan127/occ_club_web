@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Computing Club - UTP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #0a0a0f;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Wordmark */
+        .wordmark {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.3em;
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            font-weight: 200;
+            color: rgba(255, 255, 255, 0.9);
+            user-select: none;
+        }
+
+        .wordmark span {
+            display: inline-block;
+        }
+
+        .wordmark .letter-o {
+            color: #00d4ff;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Subtitle */
+        .subtitle {
+            font-size: clamp(0.55rem, 1.2vw, 0.7rem);
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            color: rgba(255, 255, 255, 0.45);
+            text-transform: uppercase;
+            margin-top: -0.5rem;
+        }
+
+        /* Loading Section */
+        .loading-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 4rem;
+        }
+
+        .loading-label {
+            font-size: 0.65rem;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+        }
+
+        .loading-percentage {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 100;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.1em;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: clamp(180px, 40vw, 280px);
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 1px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg,
+                    #00a8cc 0%,
+                    #00d4ff 40%,
+                    #00e5ff 70%,
+                    #00f0ff 100%);
+            border-radius: 1px;
+            transition: width 0.1s ease-out;
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.3) 50%,
+                    transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        /* Fade in animation */
+        .container {
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Subtle pulse on completion */
+        .complete .wordmark {
+            animation: subtlePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes subtlePulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.85;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Wordmark -->
+        <div class="wordmark">
+            <span class="letter-o">O</span><span>P</span><span>E</span><span>N</span>
+            <span style="margin-left: 0.3em;">C</span><span
+                class="letter-o">O</span><span>M</span><span>P</span><span>U</span><span>T</span><span>I</span><span>N</span><span>G</span>
+            <span style="margin-left: 0.3em;">C</span><span>L</span><span>U</span><span>B</span>
+        </div>
+
+        <!-- Subtitle -->
+        <div class="subtitle">Universiti Teknologi Petronas</div>
+
+        <!-- Loading Section -->
+        <div class="loading-section">
+            <div class="loading-label">Ready</div>
+            <div class="loading-percentage">
+                <span id="percentage">0</span><span>%</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const percentageEl = document.getElementById('percentage');
+            const progressBar = document.getElementById('progressBar');
+            const container = document.querySelector('.container');
+
+            // Configuration
+            const startPercentage = 0;
+            const targetPercentage = 100;
+            const duration = 4000; // 4 seconds total
+            const startDelay = 500; // Half second delay before starting
+
+            // Easing function for smooth acceleration/deceleration
+            const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
+            // Simulate loading that starts fast, slows near 97%, then completes
+            const simulateLoading = () => {
+                const startTime = performance.now();
+
+                const updateProgress = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    let progress = Math.min(elapsed / duration, 1);
+
+                    // Apply easing
+                    const easedProgress = easeOutQuart(progress);
+
+                    // Calculate current percentage with a pause effect near 97%
+                    let currentPercentage;
+                    if (easedProgress < 0.85) {
+                        // Fast progress to 97%
+                        currentPercentage = Math.floor(startPercentage + (97 - startPercentage) * (easedProgress / 0.85));
+                    } else {
+                        // Slow progress from 97% to 100%
+                        const remainingProgress = (easedProgress - 0.85) / 0.15;
+                        currentPercentage = Math.floor(97 + 3 * remainingProgress);
+                    }
+
+                    // Update DOM
+                    percentageEl.textContent = Math.min(currentPercentage, targetPercentage);
+                    progressBar.style.width = `${Math.min(currentPercentage, targetPercentage)}%`;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateProgress);
+                    } else {
+                        // Ensure we end at exactly 100%
+                        percentageEl.textContent = targetPercentage;
+                        progressBar.style.width = '100%';
+                        container.classList.add('complete');
+                    }
+                };
+
+                requestAnimationFrame(updateProgress);
+            };
+
+            // Start loading after a brief delay for the fade-in
+            setTimeout(simulateLoading, startDelay);
+        });
+    </script>
+</body>
+
+</html>

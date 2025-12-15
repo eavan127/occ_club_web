@@ -8,6 +8,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from the HackClubRAIT.github.io-main directory
+app.use('/HackClubRAIT.github.io-main', express.static('HackClubRAIT.github.io-main'));
+
+// Also serve static files from root for convenience
+app.use(express.static('.'));
+
 // TEST ROUTE (very important)
 app.get("/test", (req, res) => {
     res.send("Backend works");
