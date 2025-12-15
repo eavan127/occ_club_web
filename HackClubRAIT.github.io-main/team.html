@@ -332,6 +332,21 @@
             </div>
         </div>
     </footer>
+    <script src="js/click-spark.js"></script>
+    <script src="js/gradual-blur.js"></script>
+    <script src="page-transition.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            new ClickSpark({
+                root: document.body,
+                sparkColor: '#A8F0FF',
+                sparkSize: 15,
+                sparkRadius: 20,
+                sparkCount: 12,
+                duration: 400
+            });
+        });
+    </script>
 </body>
 
 <script>
