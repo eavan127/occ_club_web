@@ -9,7 +9,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="icon" href="./images/hackclubrait-logo.png">
+    <link rel="icon" href="./images/opportunities images/OCC Logo.png">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -19,9 +19,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/past.css">
-    <title>PAST EVENTS</title>
+    <title>PAST EVENTS | Open Computing Club</title>
 </head>
 
 <body class="scroll_bar_visible">
@@ -57,62 +58,177 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Past Events Section -->
-        <section class="EVENTS">
-            <!-- Event Card 1: Top Coders Technology Forum -->
-            <div class="row px-4">
-                <div class="col-md-4 col-lg-3 col-sm-3 h-100" id="opp_card" data-aos="zoom-out-up"
-                    style="background-color: #101517; color: wheat; width: 100%;">
-                    <div style="display: flex; flex-direction: column; align-items: center;" class="h-100">
-                        <img src="./images/Top_coders.jpg" alt="Top Coders" class="myimg" style="width: 15rem;">
-                        <br>
-                        <h3 style="border-bottom: 2px solid rgb(179, 238, 245);"><b>Top Coders Technology Forum</b></h3>
-                        <br>
-                        <h5><i>The event includes the Technology-Academia-Industry (T-AI) Forum, a dedicated session
-                                bringing together students and industry leaders to discuss current and future trends in
-                                AI, data science, and digital innovation. You'll gain professional insight into crucial
-                                topics like AI-enabled ecosystems, tech talent development, and lifelong learning in
-                                the rapidly evolving digital economy. 30 UTP students will be attending to gain these
-                                valuable insights.</i></h5>
-                        <a href="https://topcoders.thulija.com/" target="_blank_" class="btn btn-danger">More Details
-                            ></a>
-                        <!-- <div class="d-flex justify-content-center gap-2 mt-2">
-                            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Top Coders Technology Forum&dates=20251115T000000Z/20251115T100000Z&details=The+TOP+CODERS+TECHNOLOGY+FORUM+is+happening+soon!+Level+up+your+tech+knowledge+and+network+with+industry+experts.&location=University of Cyberjaya(UOC)"
-                                target="_blank" class="btn btn-warning">
-                                Google Calendar
-                            </a>
-                            <a href="/hackabest.ics" class="btn btn-primary" download>Add to Calendar</a>
-                        </div> -->
+        <!-- Page Header -->
+        <section class="past-header" data-aos="fade-up">
+            <h1>Past Events</h1>
+            <p class="header-subtitle">
+                A look back at the experiences, knowledge, and connections we've built together through our past events
+                and collaborations.
+            </p>
+        </section>
+
+        <!-- Events Container -->
+        <div class="events-container">
+
+            <!-- Event 1: Top Coders Technology Forum -->
+            <section class="event-section" data-aos="fade-up" data-aos-duration="1000">
+                <!-- Content Column -->
+                <div class="event-content">
+                    <span class="event-label">Technology Forum</span>
+                    <h2 class="event-title">Top Coders Technology Forum</h2>
+                    <p class="event-description">
+                        The event includes the Technology-Academia-Industry (T-AI) Forum, a dedicated session
+                        bringing together students and industry leaders to discuss current and future trends in
+                        AI, data science, and digital innovation. You'll gain professional insight into crucial
+                        topics like AI-enabled ecosystems, tech talent development, and lifelong learning in
+                        the rapidly evolving digital economy. 30 UTP students will be attending to gain these
+                        valuable insights.
+                    </p>
+                    <div class="event-cta">
+                        <a href="https://topcoders.thulija.com/" target="_blank" class="btn btn-danger">
+                            More Details <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Media Column with Flip Card -->
+                <div class="event-media">
+                    <div class="flip-card">
+                        <div class="flip-card-front">
+                            <img src="./images/Top_coders.jpg" alt="Top Coders Technology Forum">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Event Highlights</h4>
+                            <p>Join industry leaders discussing AI, data science, and digital innovation trends.</p>
+                            <div class="event-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">30</span>
+                                    <span class="stat-label">UTP Students</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">T-AI</span>
+                                    <span class="stat-label">Forum</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-hint"><i class="ri-refresh-line"></i></div>
+                </div>
+            </section>
+
+            <!-- Event 2: Dev Fest Singapore 2025 -->
+            <section class="event-section reverse" data-aos="fade-up" data-aos-duration="1000">
+                <!-- Content Column -->
+                <div class="event-content">
+                    <span class="event-label">Developer Conference</span>
+                    <h2 class="event-title">Dev Fest Singapore 2025</h2>
+                    <p class="event-description">
+                        DevFest Singapore is a one-day, community-driven conference that gathers technologists,
+                        developers, students, tech companies, and speakers in a single space to explore,
+                        discuss, and experiment with the latest in technology. The Open Computing Club invites
+                        all Universiti Teknologi PETRONAS students to join one of the top developer conferences held!
+                    </p>
+                    <div class="event-cta">
+                        <a href="https://gdg.community.dev/events/details/google-gdg-singapore-presents-devfest-singapore-2025-conference-1/"
+                            target="_blank" class="btn btn-danger">
+                            More Details <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Media Column with Flip Card -->
+                <div class="event-media">
+                    <div class="flip-card">
+                        <div class="flip-card-front">
+                            <img src="./images/Dev_Fest.jpg" alt="Dev Fest Singapore 2025">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Event Highlights</h4>
+                            <p>Community-driven conference exploring the latest in technology with developers worldwide.
+                            </p>
+                            <div class="event-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">1</span>
+                                    <span class="stat-label">Day Event</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">GDG</span>
+                                    <span class="stat-label">Singapore</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-hint"><i class="ri-refresh-line"></i></div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-elegant">
+        <div class="footer-container">
+            <div class="footer-top-row">
+                <div class="footer-brand-area">
+                    <div class="brand-row">
+                        <img src="./images/opportunities images/OCC Logo.png" alt="OCC Logo" class="footer-logo-sw">
+                        <span class="brand-name">OPEN COMPUTING CLUB</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Event Card 2: Dev Fest Singapore 2025 -->
-            <div class="row px-4">
-                <div class="col-md-4 col-lg-3 h-100" id="opp_card" data-aos="zoom-out-up"
-                    style="background-color: rgb(255, 157, 71); width: 100%;">
-                    <div style="display: flex; flex-direction: column; align-items: center;" class="h-100">
-                        <img src="./images/Dev_Fest.jpg" class="myimg" style="width: 15rem;" />
-                        <br>
-                        <h3 style="border-bottom: 2px solid black;"><b>Dev Fest Singapore 2025</b></h3>
-                        <br>
-                        <h5><i>DevFest Singapore is a one-day, community-driven conference that gathers technologists,
-                                developers, students, tech companies, and speakers in a single space to explore,
-                                discuss, and experiment with the latest in technology.</i></h5>
-                        <a href="https://gdg.community.dev/events/details/google-gdg-singapore-presents-devfest-singapore-2025-conference-1/"
-                            target="_blank_" class="btn btn-danger">More Details ></a>
-                        <!-- <div class="d-flex justify-content-center gap-2 mt-2">
-                            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dev Fest Singapore 2025&dates=20251122T093000Z/20251122T180000Z&details=The Open Computing Club invites all Universiti Teknologi students to join one of the top developer conferences held!&location=Google Developer Space, Singapore"
-                                target="_blank" class="btn btn-warning">
-                                Google Calendar
-                            </a>
-                            <a href="/hackabest.ics" class="btn btn-primary" download>Add to Calendar</a>
-                        </div> -->
-                    </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="footer-heading">NAVIGATION</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="ongoing.html">ONGOING EVENTS</a></li>
+                        <li><a href="past.html">PAST EVENTS</a></li>
+                        <li><a href="blogs.html">BLOGS</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">HEADQUARTERS</h4>
+                    <address class="footer-address">
+                        UNIVERSITI TEKNOLOGI PETRONAS<br>
+                        32610 SERI ISKANDAR<br>
+                        PERAK, MALAYSIA
+                    </address>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">LEGAL</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">PRIVACY POLICY</a></li>
+                        <li><a href="#">TERMS & CONDITIONS</a></li>
+                        <li><a href="contact.html">SUPPORT</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">REACH OUT</h4>
+                    <a href="mailto:hackclubrait@gmail.com" class="footer-mail">HACKCLUBRAIT@GMAIL.COM</a>
                 </div>
             </div>
-        </section>
-    </main>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 OPEN COMPUTING CLUB. ALL RIGHTS RESERVED.
+                </div>
+                <div class="footer-socials">
+                    <a href="https://github.com/HackClubRAIT" target="_blank" class="social-btn"><i
+                            class="ri-github-fill"></i></a>
+                    <a href="https://www.instagram.com/utp.occ" target="_blank" class="social-btn"><i
+                            class="ri-instagram-line"></i></a>
+                    <a href="https://www.linkedin.com/company/open-computing-club/" target="_blank"
+                        class="social-btn"><i class="ri-linkedin-fill"></i></a>
+                    <a href="https://discord.gg/YOUR_INVITE_CODE" target="_blank" class="social-btn"><i
+                            class="ri-discord-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 <script>
