@@ -1,0 +1,25 @@
+/* Antigravity Component Styles */
+
+.antigravity-container {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+}
+
+.antigravity-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Optional: Dark background variant */
+.antigravity-container.dark {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+/* Optional: Light background variant */
+.antigravity-container.light {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
