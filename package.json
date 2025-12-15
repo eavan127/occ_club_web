@@ -1,6 +1,12 @@
 {
   "dependencies": {
     "@react-three/fiber": "^9.4.2",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "pg": "^8.16.3",
     "three": "^0.182.0"
+  },
+  "scripts": {
+    "start": "node server.js"
   }
 }
