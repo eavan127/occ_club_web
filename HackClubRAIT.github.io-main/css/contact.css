@@ -1,0 +1,210 @@
+/* ========================================
+   CONTACT SECTION STYLES
+   ======================================== */
+
+.contact-section {
+    position: relative;
+    padding: 120px 5%;
+    background-color: #0A0A0A;
+}
+
+section#contact div.contact {
+    position: relative;
+    margin: 4rem auto;
+}
+
+div.contact div.contact_title {
+    margin: 4rem;
+    position: relative;
+}
+
+div.contact div.contact_title::after {
+    content: "";
+    position: absolute;
+    left: -2rem;
+    bottom: 0;
+    height: 100%;
+    width: 6px;
+    border-radius: 4px;
+    background: #A8F0FF;
+}
+
+div.contact div.contact_title h1 {
+    margin: 1rem auto;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.2px;
+}
+
+div.contact div.contact_title h2 {
+    margin: 1rem auto;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+div.contact div.contact_form {
+    margin: 4rem 1rem;
+    position: relative;
+    background: #f7fafc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+div.contact div.contact_form form {
+    margin: auto;
+    padding: 1rem;
+    position: relative;
+}
+
+div.contact div.contact_form form .input-group {
+    position: relative;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+div.contact div.contact_form form .input-group label {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    color: #495464;
+    letter-spacing: 0.5px;
+}
+
+div.contact div.contact_form form .input-group input,
+div.contact div.contact_form form .input-group textarea {
+    width: 100%;
+    font-size: 1.2rem;
+    color: #495464;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #9ba4b4;
+    letter-spacing: 1px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+div.contact div.contact_form form .input-group input:focus,
+div.contact div.contact_form form .input-group textarea:focus {
+    border-bottom: 2px solid #A8F0FF;
+}
+
+div.contact div.contact_form form button.btn-submit {
+    margin: 1rem 1rem 0.5rem;
+    padding: 0.5rem 2rem;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background: #A8F0FF;
+    border-radius: 2px;
+    box-shadow: 0px 4px 10px rgb(0, 0, 0, 0.1);
+}
+
+div.contact div.contact_form form button.btn-submit:hover {
+    background: #A8F0FF;
+    transition: all 0.3s linear;
+}
+
+div.contact div.contact_form .follow {
+    padding: 1rem 2.5rem;
+    position: relative;
+    background: #A8F0FF;
+}
+
+div.contact div.contact_form .follow h3 {
+    margin: 1rem 0;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+div.contact div.contact_form .follow img {
+    margin: 2rem 0;
+    width: 80%;
+    height: auto;
+}
+
+div.contact div.contact_form .follow .contact_link {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+div.contact div.contact_form .follow .contact_link a {
+    margin: 1rem 0;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+div.contact div.contact_form .follow .contact_link a i {
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    color: #ffffff;
+    vertical-align: bottom;
+}
+
+div.contact div.contact_form .follow .contact_link a span {
+    margin: auto 0.5rem;
+    font-size: 1.2rem;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+}
+
+div.contact div.contact_form .follow .social_link {
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+div.contact div.contact_form .follow .social_link a {
+    margin: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+div.contact div.contact_form .follow .social_link a i {
+    margin: auto;
+    font-size: 2.4rem;
+    color: #ffffff;
+}
+
+div.contact div.contact_form .follow .social_link a:hover {
+    transform: scale(1.3);
+}
+
+@media (max-width: 830px) {
+
+    .column1,
+    .column2 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .contactLink {
+        width: 60%;
+        display: flex;
+        justify-content: space-around;
+        margin: 5px auto;
+    }
+
+    .contactIcon {
+        height: 15px;
+        width: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contactLink {
+        width: 70%;
+    }
+}

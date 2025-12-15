@@ -1,0 +1,109 @@
+/* ========================================
+   ONGOING OPPORTUNITIES STYLES
+   ======================================== */
+
+.opportunity {
+    transform: translateY(100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    overflow-x: hidden;
+}
+
+.opportunity .row {
+    display: flex;
+    justify-content: center;
+}
+
+#opp_card {
+    background-color: white;
+    text-align: center;
+    margin: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    top: 80px;
+    /* moves card down visually */
+    font-family: 'Kameron', serif;
+}
+
+.progress-container {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: #0A0A0A;
+}
+
+.progress-bar {
+    height: 4px;
+    width: 0%;
+}
+
+@media (min-width: 768px) {
+    .row #opp_card {
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .opportunity .row {
+        width: 100vw;
+    }
+
+    .opportunity .row .col-3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 1000px) {
+    .opportunity {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+    }
+
+    .opportunity .row {
+        width: 80% !important;
+        padding: 1.5rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .opportunity .row {
+        width: 20rem !important;
+    }
+
+    .opportunity {
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 575px) {
+    .opportunity .row {
+        width: 25rem !important;
+        padding: 0 1rem !important;
+    }
+}
+
+@media (max-width:300px) {
+    .opportunity .row {
+        width: 16rem !important;
+        padding: 1.5rem !important;
+    }
+}
+
+.opportunity .row .col-3 {
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+}

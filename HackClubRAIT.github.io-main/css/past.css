@@ -1,0 +1,101 @@
+/* ========================================
+   PAST EVENTS SECTION STYLES
+   ======================================== */
+
+#past {
+    /* height: 354px; */
+    background-color: #0A0A0A;
+    color: #A8F0FF;
+    text-align: center;
+    border: 2px solid #A8F0FF;
+    box-shadow: 8px 8px 8px #A8F0FF;
+    border: none;
+}
+
+#past h5 {
+    font-size: 20px;
+}
+
+#past h3 {
+    font-size: 20px !important;
+}
+
+#past h3 B {
+    color: #ffe484;
+}
+
+#past:hover {
+    color: #ffe484;
+    color: #0A0A0A;
+    background-color: #A8F0FF;
+    transform: scale(1.038);
+    border-color: #080a52;
+    border: none;
+    box-shadow: 8px 8px 8px #A8F0FF;
+    transition: all 0.3s linear;
+}
+
+#past li {
+    border-radius: 8px !important;
+    font-size: 16px;
+}
+
+#past h4 {
+    font-size: 24px;
+}
+
+#past h2 {
+    font-size: 32px;
+}
+
+#past h5 a {
+    text-decoration: none;
+    color: #ffe484;
+}
+
+#past h5 a:hover {
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+}
+
+#past ul {
+    list-style: none;
+    display: flex;
+    text-align: center;
+    padding: 0%;
+    margin: 0%;
+    justify-content: center;
+}
+
+#past ul li {
+    margin: 10px;
+    padding: 10px;
+    color: #0A0A0A;
+    background-color: #A8F0FF;
+}
+
+#past:hover>ul li {
+    background-color: #0A0A0A !important;
+    color: #A8F0FF;
+}
+
+@media (max-width: 1300px) {
+    #past ul {
+        display: none;
+    }
+
+    #past:hover>ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 600px) {
+    #past ul li {
+        margin: 10px;
+        padding: 10px;
+        font-size: 12px;
+    }
+}

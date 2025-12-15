@@ -8,15 +8,16 @@
 
   <!-- External CSS Libraries -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Londrina+Outline&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
   <!-- CSS Files -->
-  <link href="preloader.css" rel="stylesheet" type="text/css" />
-  <link href="styles.css" rel="stylesheet" type="text/css" />
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
@@ -49,21 +50,6 @@
               backdrop-filter: blur(16px);
               z-index: 9999 !important;
             " />
-      </div>
-
-      <div class="area">
-        <ul class="circles">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
       </div>
 
       <div class="loader_content">
@@ -143,18 +129,74 @@
     </div>
   </nav>
 
-  <!-- Hero Section with Antigravity Background -->
-  <div id="hero-wrapper" style="position: relative; width: 100%; min-height: 100vh; overflow: hidden;">
-    <!-- Antigravity Animation Background -->
+  <!-- Hero Section - Bento Grid Layout -->
+  <div id="hero-wrapper" class="hero-bento-container"
+    style="position: relative; width: 100%; min-height: 100vh; overflow: hidden; display: flex; align-items: center;">
+    <!-- Antigravity Animation Background (Kept as subtle layer) -->
     <div id="antigravity-bg"
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: auto;"></div>
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.3; pointer-events: none;">
+    </div>
 
-    <!-- Hero Content (above animation) -->
-    <div id="home_welcome" data-aos="zoom-out" style="position: relative; z-index: 2; pointer-events: none;">
-      <div id="banner_data" style="pointer-events: auto;">
-        <h1 id="hackclub">Open Computing Club</h1>
-        <br />
-        <h1 id="hackclub-des">Initiative for students by students</h1>
+    <div class="container-fluid" style="position: relative; z-index: 2; width: 100%; padding-top: 80px;">
+      <div class="row hero-row align-items-center">
+
+        <!-- Left Column: Text Content -->
+        <div class="col-lg-6 hero-text-col" data-aos="fade-right" data-aos-duration="1000">
+          <h1 class="bento-title">
+            The space<br>
+            between<br>
+            <span class="highlight-text">creativity</span><br>
+            and <span class="highlight-code">code</span>
+          </h1>
+
+          <p class="bento-subtitle">
+            In the space between creativity and code, OCC creates opportunities built for the future.
+            A platform that adapts, scales, and pushes your skills forward.
+          </p>
+
+          <div class="bento-cta-group">
+            <a href="ongoing.html" class="btn-hatamex-blue">
+              EXPLORE EVENTS <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+            </a>
+            <a href="contact.html" class="btn-hatamex-outline">
+              JOIN US <i class="fas fa-plus" style="margin-left: 8px;"></i>
+            </a>
+          </div>
+
+
+        </div>
+
+        <!-- Right Column: Bento Image Grid -->
+        <div class="col-lg-6 hero-grid-col" data-aos="fade-left" data-aos-duration="1200">
+          <div class="bento-grid">
+            <div class="bento-item item-1 floating-slow">
+              <img src="images/Top_coders.jpg" alt="Coding Session">
+            </div>
+            <div class="bento-item item-2 floating-medium">
+              <img src="images/Dev_Fest.jpg" alt="Dev Fest Event">
+            </div>
+            <div class="bento-item item-3 floating-fast">
+              <img src="images/open source.svg" alt="Open Source" style="padding: 20px; background: rgba(0,0,0,0.5);">
+            </div>
+            <div class="bento-item item-4">
+              <div class="code-block-visual">
+                <div class="code-header">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <code>
+                    <span class="c-purple">const</span> <span class="c-blue">future</span> = <span class="c-purple">new</span> <span class="c-yellow">Opportunity</span>();<br>
+                    <span class="c-blue">future</span>.<span class="c-yellow">init</span>({<br>
+                    &nbsp;&nbsp;mode: <span class="c-green">'innovate'</span>,<br>
+                    &nbsp;&nbsp;team: <span class="c-green">'OCC'</span><br>
+                    });
+                  </code>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -162,53 +204,158 @@
   <div class="context"></div>
 
   <!-- About Section -->
-  <div id="home_about" style="padding-top: 10%">
-    <div class="content" data-aos="fade-right">
-      <h1><b>About OCC</b></h1>
-      <br />
-      <h3>
-        Open Computing Club (OCC) is an official student society for all
-        technology students in UTP. It is a platform that hopes to provide a
-        strong community among technology students and be bridge between
-        students and key industry players & organisations.
-      </h3>
-    </div>
-    <div class="img-box">
-      <img class="home_illus" src="images/open source.svg" alt="Open Source Illustration" />
+  <!-- Framework Section (About & Mission Redesign) -->
+  <div id="home_about" class="framework-section">
+    <div class="framework-container">
+
+      <!-- Left Column: Headline & Intro -->
+      <div class="framework-left" data-aos="fade-right" data-aos-duration="1000">
+        <span class="framework-label">OUR PROCESS</span>
+        <h2 class="framework-headline">
+          A community that drives <br> excellence
+        </h2>
+        <p class="framework-description">
+          Every journey starts with genuine curiosity and grows through collaboration that is intentional,
+          thoughtful, and built for the future. This creates a foundation that works clearly,
+          builds trust, and delivers skills that continue to evolve.
+        </p>
+        <a href="contact.html" class="btn-framework">
+          TAKE THE FIRST STEP <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+
+      <!-- Right Column: Timeline -->
+      <div class="framework-timeline" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+
+        <!-- Step 1 -->
+        <div class="timeline-item">
+          <div class="timeline-marker">1</div>
+          <h3 class="timeline-title">LEARN</h3>
+          <p class="timeline-desc">
+            We provide the resources, workshops, and mentorship you need to start with complete clarity on what truly
+            matters in tech.
+          </p>
+          <img src="images/timeline_learn.png" class="timeline-visual" alt="Learn Visualization">
+        </div>
+
+        <!-- Step 2 -->
+        <div class="timeline-item">
+          <div class="timeline-marker">2</div>
+          <h3 class="timeline-title">BUILD</h3>
+          <p class="timeline-desc">
+            We translate knowledge into concrete, real-world projects and open-source contributions that steer your
+            career forward.
+          </p>
+          <img src="images/timeline_build.png" class="timeline-visual" alt="Build Visualization">
+        </div>
+
+        <!-- Step 3 -->
+        <div class="timeline-item">
+          <div class="timeline-marker">3</div>
+          <h3 class="timeline-title">GROW</h3>
+          <p class="timeline-desc">
+            We design and develop a network that's scalable, supportive, and effortless to access for every student.
+          </p>
+          <img src="images/timeline_grow.png" class="timeline-visual" alt="Grow Visualization">
+        </div>
+
+      </div>
     </div>
   </div>
 
-  <!-- Mission Section -->
-  <div id="home_rait">
-    <div class="img-box1">
-      <img class="home_illus1" src="images/team work.svg" alt="Team Work Illustration" />
+  <!-- Drive Section (White Grid) -->
+  <section class="drive-section">
+    <div class="drive-header" data-aos="fade-up">
+
+      <h2 class="drive-headline">The drive behind everything we build</h2>
+      <p class="drive-subtext">We don't just create strategies we show the numbers. Growth means higher conversions,
+        lower costs, and stronger brands. Discover how we help you grow smarter.</p>
     </div>
-    <div class="content" data-aos="fade-left">
-      <h1><b>Open Computing Club</b></h1>
-      <br />
-      <h3>
-        Whether you're a beginner or a seasoned coder, this is your space to
-        <b>learn, build, and collaborate</b> on open-source projects. We
-        organize hands-on workshops and mentorship programs to help students
-        sharpen their computing skills and contribute meaningfully to the tech
-        community.
-      </h3>
+
+    <!-- Top Row: 3 Cards -->
+    <div class="drive-grid">
+      <!-- Card 1: Clarity -->
+      <div class="drive-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-header">
+          <h3 class="card-title">Clarity</h3>
+          <div class="card-icon-box"><i class="ri-bar-chart-line"></i></div>
+        </div>
+        <p class="card-desc">We identify where the real opportunities lie and where systems, brand or processes get
+          stuck, so every next decision drives direction and impact.</p>
+      </div>
+
+      <!-- Card 2: Partnership -->
+      <div class="drive-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-header">
+          <h3 class="card-title">Partnership</h3>
+          <div class="card-icon-box"><i class="ri-links-line"></i></div>
+        </div>
+        <p class="card-desc">We don't just build for you we build with you. Together we operate as one team that turns
+          ambition into scalable reality.</p>
+      </div>
+
+      <!-- Card 3: Engineering -->
+      <div class="drive-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-header">
+          <h3 class="card-title">Engineering</h3>
+          <div class="card-icon-box"><i class="ri-settings-4-line"></i></div>
+        </div>
+        <p class="card-desc">We build technology that works seamlessly, scales intelligently and is strategically
+          designed to push your business forward.</p>
+      </div>
     </div>
-  </div>
+
+    <!-- Bottom Row: 2 Cards -->
+    <div class="drive-grid-bottom">
+      <!-- Card 4: Evolution -->
+      <div class="drive-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="card-header">
+          <h3 class="card-title">Evolution</h3>
+          <div class="card-icon-box"><i class="ri-refresh-line"></i></div>
+        </div>
+        <p class="card-desc">We create solutions that adapt to change, respond faster, work smarter and help your brand
+          get more out of every new development.</p>
+      </div>
+
+      <!-- Card 5: Leadership -->
+      <div class="drive-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="card-header">
+          <h3 class="card-title">Leadership</h3>
+          <div class="card-icon-box"><i class="ri-trophy-line"></i></div>
+        </div>
+        <p class="card-desc">We strengthen your position in the market by sharpening visibility, improving performance
+          and building an advantage that continues to grow.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Vision Section -->
-  <div id="home_vision">
-    <h1><b>Vision</b></h1>
-    <br />
-    <div data-aos="fade-up">
-      <h2>
-        Our aim is to flourish <br />the thrilling open-source culture<br />
-        to create a favorable environment for <br /><b>open-source contributions.</b>
-      </h2>
-      <br /><br />
-      <h2>Let's come together and learn, interact, and grow.</h2>
+  <!-- Vision Section - Elegant Redesign -->
+  <div id="home_vision" class="vision-elegant-container">
+    <div class="vision-content text-center" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="vision-headline">
+        The community that gives your <span class="text-gradient">potential</span><br>
+        the support it’s been looking for
+      </h1>
+
+      <p class="vision-subtext">
+        In a world that changes at lightning speed, we create open-source experiences that grow with your ambitions
+        powered by smart technology, intentional collaboration, and a future-ready mindset.
+      </p>
     </div>
-    <br />
+
+    <div class="vision-video-wrapper" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
+      <div class="video-overlay-gradient"></div>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/Q7AOvWpIVHU?autoplay=1&mute=1&loop=1&playlist=Q7AOvWpIVHU&controls=0&showinfo=0&rel=0"
+          title="Technology Background" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-text-overlay">FUTURE</div>
+    </div>
   </div>
 
   <!-- Back to Top Button -->
@@ -221,76 +368,79 @@
   </div>
 
   <!-- Footer -->
-  <footer>
-    <div class="footer">
-      <div class="column1">
-        <div class="footerHeading">
-          <div class="footerHeading1">
-            <h1>Open Computing Club</h1>
-            <div class="logo-img">
-              <img src="./images/opportunities images/OCC Logo.png" alt="Open Computing Club Logo" />
-            </div>
-          </div>
-          <p>Initiative for students by students</p>
-        </div>
-        <div class="contactLink">
-          <div class="wrapper">
-            <ul>
-              <a href="https://github.com/HackClubRAIT" target="_blank" rel="noopener">
-                <li class="github">
-                  <i class="fa fa-github fa-2x" aria-hidden="true"></i>
-                </li>
-              </a>
-              <a href="https://www.instagram.com/utp.occ?igsh=MWNtZnFpYjJxNjJpcA==" target="_blank" rel="noopener">
-                <li class="instagram">
-                  <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
-                </li>
-              </a>
-              <a href="https://www.linkedin.com/company/hack-club-rait" target="_blank" rel="noopener">
-                <li class="linkedin">
-                  <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
-                </li>
-              </a>
-              <a href="mailto:hackclubrait@gmail.com">
-                <li class="gmail">
-                  <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
-                </li>
-              </a>
-              <a href="https://discord.gg/YOUR_INVITE_CODE" target="_blank" rel="noopener">
-                <li class="discord">
-                  <i class="fab fa-discord fa-2x" aria-hidden="true"></i>
-                </li>
-              </a>
-            </ul>
+  <!-- Footer - Elegant Hatamex Style -->
+  <footer class="footer-elegant">
+    <div class="footer-container">
+
+      <!-- Footer Top: Brand -->
+      <div class="footer-top-row">
+        <div class="footer-brand-area">
+          <div class="brand-row">
+            <img src="./images/opportunities images/OCC Logo.png" alt="OCC Logo" class="footer-logo-sw">
+            <span class="brand-name">OPEN COMPUTING CLUB</span>
           </div>
         </div>
       </div>
-      <div class="column2">
-        <h2>Useful Links</h2>
-        <div class="footerLinks">
-          <div class="g1">
-            <a href="index.html">HOME</a>
-            <a href="ongoing.html">ONGOING EVENTS</a>
-            <a href="past.html">PAST EVENTS</a>
-          </div>
-          <div class="g2">
-            <a href="team.html">HIGH COMMITTEES</a>
-            <a href="contributer.html">COMMITTEES</a>
-            <a href="contact.html">CONTACT US</a>
-          </div>
+
+      <!-- Footer Grid: Navigation Columns -->
+      <div class="footer-grid">
+        <!-- Col 1: Navigation -->
+        <div class="footer-col">
+          <h4 class="footer-heading">NAVIGATION</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="ongoing.html">ONGOING EVENTS</a></li>
+            <li><a href="past.html">PAST EVENTS</a></li>
+            <li><a href="blogs.html">BLOGS</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Headquarters -->
+        <div class="footer-col">
+          <h4 class="footer-heading">HEADQUARTERS</h4>
+          <address class="footer-address">
+            UNIVERSITI TEKNOLOGI PETRONAS<br>
+            32610 SERI ISKANDAR<br>
+            PERAK, MALAYSIA
+          </address>
+        </div>
+
+        <!-- Col 3: Legal -->
+        <div class="footer-col">
+          <h4 class="footer-heading">LEGAL</h4>
+          <ul class="footer-links">
+            <li><a href="#">PRIVACY POLICY</a></li>
+            <li><a href="#">TERMS & CONDITIONS</a></li>
+            <li><a href="contact.html">SUPPORT</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Reach Out -->
+        <div class="footer-col">
+          <h4 class="footer-heading">REACH OUT</h4>
+          <a href="mailto:hackclubrait@gmail.com" class="footer-mail">HACKCLUBRAIT@GMAIL.COM</a>
         </div>
       </div>
+
+      <!-- Footer Bottom: Copyright & Socials -->
+      <div class="footer-bottom">
+        <div class="copyright">
+          &copy; 2025 OPEN COMPUTING CLUB. ALL RIGHTS RESERVED.
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/HackClubRAIT" target="_blank" class="social-btn"><i
+              class="ri-github-fill"></i></a>
+          <a href="https://www.instagram.com/utp.occ" target="_blank" class="social-btn"><i
+              class="ri-instagram-line"></i></a>
+          <a href="https://www.linkedin.com/company/open-computing-club/" target="_blank" class="social-btn"><i
+              class="ri-linkedin-fill"></i></a>
+          <a href="https://discord.gg/YOUR_INVITE_CODE" target="_blank" class="social-btn"><i
+              class="ri-discord-fill"></i></a>
+        </div>
+      </div>
+
     </div>
-    <br />
-    <h5 style="margin: 0px">Made with 💝 by Open Computing Club</h5>
-    <p style="
-          display: flex;
-          justify-content: center;
-          padding-bottom: 1%;
-          font-size: 15px;
-        ">
-      © Open Computing Club 2025
-    </p>
   </footer>
 
   <!-- JavaScript Libraries (Load in correct order) -->
@@ -311,12 +461,22 @@
   <!-- Three.js and Antigravity Animation -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="antigravity.js"></script>
+
+  <!-- Text Animations (Typewriter, Scroll Reveal) -->
+  <script src="text-animations.js"></script>
+
+  <!-- Smooth Page Transitions -->
+  <script src="page-transition.js"></script>
+
   <script>
     // Wait for DOM to be ready before executing
     document.addEventListener("DOMContentLoaded", function () {
-      // Initialize AOS
+      // Initialize AOS with enhanced settings
       AOS.init({
-        duration: 1200,
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 50,
       });
 
       // Set progress bar color
@@ -360,6 +520,7 @@
       window.addEventListener("scroll", navToTop);
     });
   </script>
+  <script src="framework-interaction.js"></script>
 </body>
 
 </html>
