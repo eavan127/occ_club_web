@@ -387,8 +387,10 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
+    gap: 0;
+    /* Remove gap to let content flush */
+    align-items: center;
+    /* Center vertically */
 }
 
 /* Left Column */
@@ -452,23 +454,95 @@
     transform: translateY(-2px);
 }
 
-/* Right Column: Timeline */
+/* Right Column: Timeline (Horizontal Slider) */
 .framework-timeline {
     position: relative;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    padding-left: 50px;
+    border-left: none;
+    /* Remove vertical line */
+    padding-left: 0;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    scrollbar-width: none;
+    /* Hide scrollbar Firefox */
+    -ms-overflow-style: none;
+    /* Hide scrollbar IE/Edge */
+    scroll-behavior: smooth;
+}
+
+.framework-timeline::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar Chrome/Safari */
 }
 
 .timeline-item {
     position: relative;
-    padding-bottom: 8vh;
-    opacity: 0.2;
-    /* Much lower opacity for inactive items */
-    transform: scale(0.95);
-    /* Slightly smaller */
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    filter: blur(2px);
-    /* Blur inactive items slightly */
+    min-width: 100%;
+    /* Full width of container */
+    height: 600px;
+    /* Fixed height frame for "book" feel */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: center;
+    padding: 0 40px;
+    /* Internal padding */
+    opacity: 0.3;
+    transform: scale(0.9);
+    transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+    filter: blur(4px);
+    box-sizing: border-box;
+}
+
+/* Dot Navigation */
+.timeline-navigation {
+    position: absolute;
+    /* Position relative to the timeline container */
+    bottom: 200px;
+    left: 75%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    /* Horizontal row */
+    gap: 15px;
+    z-index: 100;
+}
+
+.timeline-dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.timeline-dot::after {
+    /* Hide label for bottom dots to keep it clean, or position below */
+    content: attr(data-label);
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.timeline-dot:hover::after {
+    opacity: 1;
+}
+
+.timeline-dot.active {
+    background: #2F55D4;
+    transform: scale(1.3);
+    box-shadow: 0 0 10px rgba(47, 85, 212, 0.5);
 }
 
 .timeline-item:hover,

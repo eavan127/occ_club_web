@@ -4,207 +4,236 @@
 
 .contact-section {
     position: relative;
-    padding: 120px 5%;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #0A0A0A;
+    overflow: hidden;
+    /* Prevent scrollbar if content fits */
 }
 
 section#contact div.contact {
     position: relative;
-    margin: 4rem auto;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1100px;
+    /* Slightly narrower */
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 div.contact div.contact_title {
-    margin: 4rem;
-    position: relative;
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+    padding-top: 60px;
+    /* Account for fixed nav */
 }
 
 div.contact div.contact_title::after {
+    /* Centered decorative line */
     content: "";
     position: absolute;
-    left: -2rem;
-    bottom: 0;
-    height: 100%;
-    width: 6px;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 60px;
     border-radius: 4px;
     background: #A8F0FF;
 }
 
 div.contact div.contact_title h1 {
-    margin: 1rem auto;
-    font-size: 2.5rem;
-    font-weight: 600;
+    font-size: 5rem;
+    font-weight: 700;
     color: #ffffff;
-    letter-spacing: 0.2px;
+    margin-bottom: 0.5rem;
+    line-height: 1;
 }
 
 div.contact div.contact_title h2 {
-    margin: 1rem auto;
-    font-size: 2rem;
-    font-weight: 600;
-    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 div.contact div.contact_form {
-    margin: 4rem 1rem;
-    position: relative;
-    background: #f7fafc;
-    border-radius: 10px;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
     overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-div.contact div.contact_form form {
-    margin: auto;
-    padding: 1rem;
-    position: relative;
+div.contact div.contact_form .form {
+    padding: 3rem;
 }
 
 div.contact div.contact_form form .input-group {
-    position: relative;
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
+    padding: 0.5rem 0;
+    margin-bottom: 1.5rem;
+    background: transparent;
 }
 
 div.contact div.contact_form form .input-group label {
-    margin: 0.5rem 0;
-    font-size: 1.2rem;
-    color: #495464;
-    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 div.contact div.contact_form form .input-group input,
 div.contact div.contact_form form .input-group textarea {
     width: 100%;
-    font-size: 1.2rem;
-    color: #495464;
+    font-size: 1.1rem;
+    color: #fff;
     background: transparent;
+    /* Minimalist: No background */
     border: none;
-    border-bottom: 2px solid #9ba4b4;
-    letter-spacing: 1px;
-    outline: none;
-    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    /* Underline only */
+    border-radius: 0;
+    padding: 12px 0;
+    /* Padding left/right removed */
+    transition: all 0.3s ease;
 }
 
 div.contact div.contact_form form .input-group input:focus,
 div.contact div.contact_form form .input-group textarea:focus {
-    border-bottom: 2px solid #A8F0FF;
+    border-color: #A8F0FF;
+    background: transparent;
+    box-shadow: none;
+    border-bottom-width: 2px;
 }
 
 div.contact div.contact_form form button.btn-submit {
-    margin: 1rem 1rem 0.5rem;
-    padding: 0.5rem 2rem;
-    font-size: 1.2rem;
-    color: #ffffff;
-    background: #A8F0FF;
-    border-radius: 2px;
-    box-shadow: 0px 4px 10px rgb(0, 0, 0, 0.1);
-}
-
-div.contact div.contact_form form button.btn-submit:hover {
-    background: #A8F0FF;
-    transition: all 0.3s linear;
-}
-
-div.contact div.contact_form .follow {
-    padding: 1rem 2.5rem;
-    position: relative;
-    background: #A8F0FF;
-}
-
-div.contact div.contact_form .follow h3 {
-    margin: 1rem 0;
-    font-size: 2rem;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 12px;
+    font-size: 1.1rem;
     font-weight: 600;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-}
-
-div.contact div.contact_form .follow img {
-    margin: 2rem 0;
-    width: 80%;
-    height: auto;
-}
-
-div.contact div.contact_form .follow .contact_link {
-    margin: 2rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-}
-
-div.contact div.contact_form .follow .contact_link a {
-    margin: 1rem 0;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-div.contact div.contact_form .follow .contact_link a i {
-    margin: 0 0.5rem;
-    font-size: 1.5rem;
-    color: #ffffff;
-    vertical-align: bottom;
-}
-
-div.contact div.contact_form .follow .contact_link a span {
-    margin: auto 0.5rem;
-    font-size: 1.2rem;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-    line-height: 1.5;
-}
-
-div.contact div.contact_form .follow .social_link {
-    margin: 0.5rem 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-div.contact div.contact_form .follow .social_link a {
-    margin: 1rem;
-    text-decoration: none;
+    color: #0A0A0A;
+    background: #A8F0FF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
-div.contact div.contact_form .follow .social_link a i {
-    margin: auto;
-    font-size: 2.4rem;
-    color: #ffffff;
+div.contact div.contact_form form button.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(168, 240, 255, 0.3);
+}
+
+/* Right Panel - Technology Background */
+/* Right Panel - Technology Background */
+div.contact div.contact_form .follow {
+    padding: 3rem;
+    background: url('../images/tech_contact_bg.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Space out content */
+    position: relative;
+    text-align: left;
+    /* Left align text */
+}
+
+/* Info Groups */
+.contact_info_group {
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.info-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #A8F0FF;
+    margin-bottom: 0.8rem;
+    opacity: 0.8;
+}
+
+div.contact div.contact_form .follow address {
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.email-link {
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 2px;
+    transition: all 0.3s;
+}
+
+.email-link:hover {
+    color: #A8F0FF;
+    border-color: #A8F0FF;
+}
+
+div.contact div.contact_form .follow h3 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    font-weight: 300;
+    /* Minimalist thin weight */
+}
+
+div.contact div.contact_form .follow .social_link {
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+}
+
+div.contact div.contact_form .follow .social_link a {
+    background: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 div.contact div.contact_form .follow .social_link a:hover {
-    transform: scale(1.3);
+    background: #A8F0FF;
+    color: #004d40;
+    transform: translateY(-3px);
 }
 
-@media (max-width: 830px) {
-
-    .column1,
-    .column2 {
-        width: 100%;
-        margin-bottom: 10px;
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-section {
+        height: auto;
+        padding: 100px 5% 50px;
     }
 
-    .contactLink {
-        width: 60%;
-        display: flex;
-        justify-content: space-around;
-        margin: 5px auto;
+    div.contact div.contact_form {
+        flex-direction: column;
     }
 
-    .contactIcon {
-        height: 15px;
-        width: 20px;
-    }
-}
-
-@media (max-width: 600px) {
-    .contactLink {
-        width: 70%;
+    div.contact div.contact_form .follow {
+        padding: 2rem;
     }
 }

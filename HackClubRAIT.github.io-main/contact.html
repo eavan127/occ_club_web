@@ -29,20 +29,20 @@
       <div class="progress-bar" id="myBar"></div>
     </div>
     <a class="header" href="index.html">
-      <img id="logo" src="./images/opportunities images/OCC Logo.png" />
+      <img id="logo" src="./images/opportunities images/OCC Logo.png" alt="Open Computing Club Logo" />
       <div class="logo_header">
         <span style="color: #a8f0ff">Open Computing Club</span>
       </div>
     </a>
-
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="nav navbars navbar-nav ms-auto">
-        <li><a href="index.html" class="hover-line nav navbars">HOME</a></li>
+      <ul class="nav navbars navbar-nav ml-auto">
+        <li>
+          <a href="index.html" class="hover-line nav navbars">HOME</a>
+        </li>
         <li>
           <a href="ongoing.html" class="hover-line nav navbars">ONGOING EVENTS</a>
         </li>
@@ -55,7 +55,9 @@
         <li>
           <a href="contributer.html" class="hover-line nav navbars">COMMITTEES</a>
         </li>
-        <li><a href="blogs.html" class="hover-line nav navbars">BLOGS</a></li>
+        <li>
+          <a href="blogs.html" class="hover-line nav navbars">BLOGS</a>
+        </li>
         <li>
           <a href="contact.html" class="active hover-line nav navbars">CONTACT US</a>
         </li>
@@ -66,51 +68,59 @@
   <section id="contact" class="pt-5">
     <div class="container contact">
       <div class="contact_title">
-        <h1>Contact Us</h1>
-        <h2>We'd love to hear from you</h2>
+        <h1>Ready for impact?</h1>
+        <h2>You're one click away from the next step. Email us, send a message, or book a meeting online.</h2>
       </div>
 
       <div class="contact_form row">
-        <div class="col-md-7 form">
-          <form onsubmit="sendMessage(event)">
-            <div class="input-group">
-              <label for="name">Name</label>
-              <input type="text" name="Name" id="name" required />
-            </div>
-            <div class="input-group">
-              <label for="email">Email</label>
-              <input type="email" name="Email" id="email" required />
-            </div>
-            <div class="input-group">
-              <label for="sub">Subject</label>
-              <input type="text" name="Subject" id="sub" required />
-            </div>
-            <div class="input-group">
-              <label for="msg">Message</label>
-              <textarea name="Message" id="msg" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-submit">Send Message</button>
-          </form>
-        </div>
-
+        <!-- LEFT PANEL: Info & Follow (Swapped) -->
         <div class="col-md-5 follow">
           <h3>Follow Us</h3>
-          <div class="contact_link">
-            <a href="mailto:hackclubrait@gmail.com">
-              <i class="bx bxs-envelope"></i>
-              <span>hackclubrait@gmail.com</span>
-            </a>
-            <a href="#">
-              <i class="bx bxs-map"></i>
-              <span>Sector 7, Nerul, Navi Mumbai 400706, India</span>
+
+          <div class="contact_info_group">
+            <h4 class="info-label">HEADQUARTERS</h4>
+            <address>
+              UNIVERSITI TEKNOLOGI PETRONAS<br>
+              32610 SERI ISKANDAR<br>
+              PERAK, MALAYSIA
+            </address>
+          </div>
+
+          <div class="contact_info_group">
+            <h4 class="info-label">REACH OUT</h4>
+            <a href="mailto:hackclubrait@gmail.com" class="email-link">
+              HACKCLUBRAIT@GMAIL.COM
             </a>
           </div>
+
           <div class="social_link">
             <a href="https://github.com/HackClubRAIT"><i class="bx bxl-github"></i></a>
             <a href="https://www.instagram.com/hackclubrait"><i class="bx bxl-instagram"></i></a>
             <a href="https://www.linkedin.com/company/hack-club-rait"><i class="bx bxl-linkedin"></i></a>
           </div>
-          <img src="./images/newsletter.svg" alt="Newsletter" />
+        </div>
+
+        <!-- RIGHT PANEL: Form (Swapped) -->
+        <div class="col-md-7 form">
+          <form onsubmit="sendMessage(event)">
+            <div class="input-group">
+              <label for="name">NAME</label>
+              <input type="text" name="Name" id="name" placeholder="JOHN DOE" required />
+            </div>
+            <div class="input-group">
+              <label for="email">EMAIL</label>
+              <input type="email" name="Email" id="email" placeholder="HELLO@EMAIL.COM" required />
+            </div>
+            <div class="input-group">
+              <label for="sub">SUBJECT</label>
+              <input type="text" name="Subject" id="sub" placeholder="BRAND STRATEGY & IDENTITY" required />
+            </div>
+            <div class="input-group">
+              <label for="msg">MESSAGE</label>
+              <textarea name="Message" id="msg" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-submit">SEND</button>
+          </form>
         </div>
       </div>
     </div>
@@ -162,6 +172,21 @@
   </script>
 
 
+  <script src="js/click-spark.js"></script>
+  <script src="js/gradual-blur.js"></script>
+  <script src="page-transition.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new ClickSpark({
+        root: document.querySelector('.contact-section'), // Attach to the main section
+        sparkColor: '#A8F0FF', // Match the theme color
+        sparkSize: 15,
+        sparkRadius: 20,
+        sparkCount: 12,
+        duration: 400
+      });
+    });
+  </script>
 </body>
 
 </html>

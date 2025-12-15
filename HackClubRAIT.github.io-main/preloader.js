@@ -63,6 +63,12 @@ const simulateLoading = () => {
 // Hide the loader
 const hideLoader = () => {
     if (loaderContainer) {
+        // Trigger Zoom-In Transition EARLIER (as loader starts fading)
+        const mainContent = document.getElementById('main-content-wrapper');
+        if (mainContent) {
+            mainContent.classList.add('loaded-content');
+        }
+
         loaderContainer.classList.add('fade-out');
 
         // Remove scroll lock
