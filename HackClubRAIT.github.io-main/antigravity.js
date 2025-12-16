@@ -95,7 +95,7 @@
         }
 
         createParticles() {
-            const geometry = new THREE.SphereGeometry(0.3, 8, 8);
+            const geometry = new THREE.SphereGeometry(0.15, 8, 8);
             const material = new THREE.MeshBasicMaterial({
                 color: this.config.color,
                 transparent: true,
@@ -263,7 +263,7 @@
                 magnetRadius: 25,
                 ringRadius: 12,
                 color: '#A8F0FF',
-                particleSize: 2.5,
+                particleSize: 1.5,
                 autoAnimate: true
             });
         } else {
