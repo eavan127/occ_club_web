@@ -65,64 +65,69 @@
     </div>
   </nav>
 
-  <section id="contact" class="pt-5">
-    <div class="container contact">
-      <div class="contact_title">
-        <h1>Ready to Join Us?</h1>
-        <h2>You're one click away from the next step. Email us, send a message, or book a meeting online.</h2>
-      </div>
+  <section id="contact" class="contact-page">
+    <!-- Dark Background Layer with Grid Pattern -->
+    <div class="contact-bg-layer"></div>
 
-      <div class="contact_form row">
-        <!-- LEFT PANEL: Info & Follow (Swapped) -->
-        <div class="col-md-5 follow">
-          <h3>Join Us</h3>
+    <!-- Content Wrapper -->
+    <div class="contact-content-wrapper">
 
-          <div class="contact_info_group">
-            <h4 class="info-label">HEADQUARTERS</h4>
-            <address>
-              UNIVERSITI TEKNOLOGI PETRONAS<br>
-              32610 SERI ISKANDAR<br>
-              PERAK, MALAYSIA
-            </address>
-          </div>
+      <!-- Left Side: Heading & Info -->
+      <div class="contact-left">
+        <h1>Ready to <span>Join Us</span>?</h1>
+        <p class="info-subtitle">You're one click away from the next step. Send us a message or reach out directly.</p>
 
-          <div class="contact_info_group">
-            <h4 class="info-label">REACH OUT</h4>
-            <a href="mailto:hackclubrait@gmail.com" class="email-link">
-              HACKCLUBRAIT@GMAIL.COM
-            </a>
-          </div>
-
-          <div class="social_link">
-            <a href="https://github.com/HackClubRAIT"><i class="bx bxl-github"></i></a>
-            <a href="https://www.instagram.com/utp.occ"><i class="bx bxl-instagram"></i></a>
-            <a href="https://www.linkedin.com/company/open-computing-club/"><i class="bx bxl-linkedin"></i></a>
-          </div>
+        <div class="contact-info-block">
+          <h4 class="info-label">Location</h4>
+          <address>
+            UNIVERSITI TEKNOLOGI PETRONAS<br>
+            32610 SERI ISKANDAR<br>
+            PERAK, MALAYSIA
+          </address>
         </div>
 
-        <!-- RIGHT PANEL: Form (Swapped) -->
-        <div class="col-md-7 form">
+        <div class="contact-info-block">
+          <h4 class="info-label">Reach Out</h4>
+          <a href="mailto:hackclubrait@gmail.com" class="email-link">
+            HACKCLUBRAIT@GMAIL.COM
+          </a>
+        </div>
+
+        <div class="contact-socials">
+          <a href="https://github.com/HackClubRAIT" aria-label="GitHub"><i class="bx bxl-github"></i></a>
+          <a href="https://www.instagram.com/utp.occ" aria-label="Instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/open-computing-club/" aria-label="LinkedIn"><i
+              class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+
+      <!-- Right Side: Floating Form Card -->
+      <div class="contact-right">
+        <div class="contact-form-card">
+          <h3>Send us a message</h3>
           <form onsubmit="sendMessage(event)">
-            <div class="input-group">
-              <label for="name">NAME</label>
-              <input type="text" name="Name" id="name" placeholder="JOHN DOE" required />
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" name="Name" id="name" placeholder="Enter your name" required />
             </div>
-            <div class="input-group">
-              <label for="email">EMAIL</label>
-              <input type="email" name="Email" id="email" placeholder="HELLO@EMAIL.COM" required />
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="Email" id="email" placeholder="Enter your email" required />
             </div>
-            <div class="input-group">
+            <div class="form-group">
               <label for="sub">Course</label>
-              <input type="text" name="Subject" id="sub" placeholder="BRAND STRATEGY & IDENTITY" required />
+              <input type="text" name="Subject" id="sub" placeholder="Your course of study" required />
             </div>
-            <div class="input-group">
+            <div class="form-group">
               <label for="msg">Why Join Us?</label>
-              <textarea name="Message" id="msg" rows="3" required></textarea>
+              <textarea name="Message" id="msg" rows="4" placeholder="Tell us why you want to join..."
+                required></textarea>
             </div>
-            <button type="submit" class="btn btn-submit">SEND</button>
+            <button type="submit" class="btn-submit">Send Message</button>
           </form>
         </div>
       </div>
+
     </div>
   </section>
 
