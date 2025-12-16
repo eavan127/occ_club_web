@@ -8,43 +8,42 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from the HackClubRAIT.github.io-main directory
+// Serve static files
 app.use('/HackClubRAIT.github.io-main', express.static('HackClubRAIT.github.io-main'));
-
-// Also serve static files from root for convenience
 app.use(express.static('.'));
 
-// TEST ROUTE (very important)
+// TEST ROUTE
 app.get("/test", (req, res) => {
     res.send("Backend works");
 });
 
-// PostgreSQL connection
+// PostgreSQL connection (Supabase)
 const pool = new Pool({
-    host: "localhost",
+    host: "db.eiyqyhwfgcpklnqahcbu.supabase.co",
     port: 5432,
-    user: "web_user",
-    password: "Test1234!",
-    database: "occ_web_db"
+    user: "postgres",
+    password: "jessy123456",
+    database: "postgres",
+    ssl: { rejectUnauthorized: false }
 });
 
-
+// CONTACT API
 app.post("/api/contact", async (req, res) => {
     const { name, email, subject, message } = req.body;
 
     try {
         await pool.query(
-            "INSERT INTO contact_messages (name, email, subject, message) VALUES ($1,$2,$3,$4)",
+            "INSERT INTO contact_messages (name, email, subject, message) VALUES ($1, $2, $3, $4)",
             [name, email, subject, message]
         );
-
-        res.json({ success: true });
+        res.status(200).json({ success: true });
     } catch (err) {
-        console.error("DB ERROR:", err);
-        res.status(500).json({ success: false });
+        console.error(err);
+        res.status(500).json({ error: "Database error" });
     }
 });
 
-app.listen(3000, () => {
-    console.log("✅ Server running on http://localhost:3000");
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });
