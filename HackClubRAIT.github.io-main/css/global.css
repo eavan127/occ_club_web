@@ -532,3 +532,147 @@ nav {
     transform: none;
     /* Ensure no residual transform affects fixed elements */
 }
+
+/* ========================================
+   ENHANCED MOBILE RESPONSIVENESS
+   ======================================== */
+
+/* Medium screens and tablets */
+@media (max-width: 768px) {
+
+    /* Navigation */
+    #logo {
+        width: 45px;
+        height: 45px;
+        margin-top: -5px;
+    }
+
+    .logo_header {
+        padding-left: 10px;
+        font-size: 0.9rem;
+    }
+
+    .header {
+        font-size: 1.1em;
+    }
+
+    /* Buttons - ensure touch-friendly */
+    .btn-primary,
+    .btn-secondary {
+        padding: 14px 28px;
+        font-size: 0.9rem;
+        min-height: 48px;
+    }
+
+    /* Footer improvements */
+    .footer-elegant {
+        padding: 60px 5% 30px;
+    }
+
+    .footer-top-row {
+        margin-bottom: 40px;
+    }
+
+    .brand-name {
+        font-size: 1.2rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+
+    .footer-bottom {
+        padding-right: 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    /* Back to top button */
+    #buttontop {
+        height: 45px;
+        width: 45px;
+        right: 15px;
+        bottom: 15px;
+    }
+}
+
+/* Small screens and phones */
+@media (max-width: 576px) {
+
+    /* Navigation */
+    .logo_header {
+        display: none;
+    }
+
+    #logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Footer single column */
+    .footer-elegant {
+        padding: 40px 4% 25px;
+    }
+
+    .footer-top-row {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .brand-row {
+        justify-content: center;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-col {
+        align-items: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-right: 0;
+        gap: 20px;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+
+    /* Buttons full width on small screens */
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 24px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 400px) {
+    .brand-name {
+        font-size: 1rem;
+    }
+
+    .footer-heading {
+        font-size: 0.8rem;
+    }
+
+    .footer-links a,
+    .footer-address,
+    .footer-mail {
+        font-size: 0.85rem;
+    }
+
+    .copyright {
+        font-size: 0.75rem;
+    }
+}

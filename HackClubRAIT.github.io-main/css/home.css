@@ -311,10 +311,12 @@
 
     .hero-row {
         flex-direction: column;
+        padding: 0 20px;
     }
 
     .hero-text-col {
         padding-right: 15px;
+        padding-left: 15px;
         margin-bottom: 50px;
         text-align: center;
     }
@@ -338,9 +340,53 @@
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
+    .hero-row {
+        padding: 0 15px;
+    }
+
+    .bento-title {
+        font-size: clamp(2.2rem, 8vw, 3rem);
+    }
+
+    .bento-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .bento-cta-group {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 2rem;
+    }
+
+    .btn-hatamex-blue,
+    .btn-hatamex-outline {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+        min-height: 48px;
+    }
+
+    .bento-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
     .hero-grid-col {
         height: 350px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-bento-container {
+        padding: 90px 0 40px;
+    }
+
+    .hero-grid-col {
+        height: 300px;
     }
 
     .bento-grid {
@@ -367,7 +413,27 @@
     }
 
     .bento-title {
-        font-size: 2.8rem;
+        font-size: 2rem;
+    }
+
+    .code-block-visual {
+        font-size: 0.75rem;
+        padding: 15px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 400px) {
+    .bento-title {
+        font-size: 1.75rem;
+    }
+
+    .bento-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .hero-grid-col {
+        height: 250px;
     }
 }
 
@@ -755,6 +821,70 @@
     }
 }
 
+@media (max-width: 768px) {
+    .drive-section {
+        padding: 80px 5%;
+    }
+
+    .drive-header {
+        margin-bottom: 50px;
+    }
+
+    .drive-headline {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+    }
+
+    .drive-subtext {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .drive-grid,
+    .drive-grid-bottom {
+        gap: 20px;
+    }
+
+    .drive-card {
+        padding: 30px 25px;
+    }
+
+    .card-header {
+        margin-bottom: 20px;
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+    }
+
+    .card-desc {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .drive-section {
+        padding: 60px 4%;
+    }
+
+    .drive-headline {
+        font-size: 1.6rem;
+    }
+
+    .drive-card {
+        padding: 25px 20px;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
+
+    .card-icon-box {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
 /* ========================================
    ELEGANT VISION SECTION
    ======================================== */
@@ -854,13 +984,54 @@
     white-space: nowrap;
 }
 
-/* Mobile Adjustments */
+/* Mobile Adjustments for Vision */
 @media (max-width: 768px) {
     .vision-elegant-container {
-        padding-top: 80px;
+        padding: 80px 15px 0;
+    }
+
+    .vision-headline {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        padding: 0 10px;
     }
 
     .vision-subtext {
         padding: 0 15px;
+        margin-bottom: 50px;
+        font-size: 0.95rem;
+    }
+
+    .video-container {
+        height: 45vh;
+        min-height: 280px;
+    }
+
+    .video-text-overlay {
+        font-size: clamp(2.5rem, 12vw, 6rem);
+        letter-spacing: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .vision-elegant-container {
+        padding: 60px 10px 0;
+    }
+
+    .vision-headline {
+        font-size: 1.5rem;
+    }
+
+    .vision-subtext {
+        font-size: 0.9rem;
+        margin-bottom: 40px;
+    }
+
+    .video-container {
+        height: 35vh;
+        min-height: 220px;
+    }
+
+    .vision-video-wrapper {
+        border-radius: 12px 12px 0 0;
     }
 }

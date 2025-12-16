@@ -304,6 +304,11 @@
         font-size: 2rem;
     }
 
+    .past-header .header-subtitle {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
     .event-section {
         padding: 50px 0;
         gap: 30px;
@@ -313,14 +318,54 @@
         font-size: 1.5rem;
     }
 
+    .event-description {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    /* Flip card adjustments for mobile */
+    .flip-card {
+        min-height: 280px;
+    }
+
+    .flip-card-front img {
+        min-height: 280px;
+    }
+
+    .flip-card-back {
+        padding: 25px 20px;
+    }
+
+    .flip-card-back h4 {
+        font-size: 1.1rem;
+    }
+
+    .flip-card-back p {
+        font-size: 0.85rem;
+    }
+
+    .flip-card-back .stat-value {
+        font-size: 1.2rem;
+    }
+
     .event-media img {
         min-height: 250px;
+    }
+
+    /* Touch-friendly button */
+    .event-cta .btn-danger {
+        padding: 16px 28px;
+        min-height: 48px;
     }
 }
 
 @media (max-width: 576px) {
     .past-header {
         padding: 100px 5% 40px;
+    }
+
+    .past-header h1 {
+        font-size: 1.75rem;
     }
 
     .events-container {
@@ -331,39 +376,68 @@
         padding: 40px 0;
     }
 
+    .event-content {
+        gap: 18px;
+    }
+
+    .event-label {
+        font-size: 0.8rem;
+    }
+
+    .event-title {
+        font-size: 1.3rem;
+        padding-bottom: 12px;
+    }
+
+    .event-description {
+        font-size: 0.9rem;
+    }
+
+    /* Full width button */
     .event-cta .btn-danger {
         width: 100%;
         justify-content: center;
     }
+
+    /* Smaller flip cards */
+    .flip-card {
+        min-height: 240px;
+    }
+
+    .flip-card-front img {
+        min-height: 240px;
+    }
+
+    .flip-card-back {
+        padding: 20px 15px;
+    }
+
+    .flip-card-back .event-stats {
+        gap: 16px;
+    }
+
+    .flip-hint {
+        width: 30px;
+        height: 30px;
+        font-size: 0.85rem;
+    }
 }
 
-/* ========================================
-   LEGACY STYLES (preserved for compatibility)
-   ======================================== */
+/* Extra small screens */
+@media (max-width: 400px) {
+    .past-header h1 {
+        font-size: 1.5rem;
+    }
 
-#past {
-    background-color: #0A0A0A;
-    color: #A8F0FF;
-    text-align: center;
-    border: none;
-}
+    .event-title {
+        font-size: 1.2rem;
+    }
 
-#past h5 {
-    font-size: 20px;
-}
+    .flip-card {
+        min-height: 200px;
+    }
 
-#past h3 {
-    font-size: 20px !important;
-}
-
-#past h3 B {
-    color: #ffe484;
-}
-
-#past:hover {
-    color: #0A0A0A;
-    background-color: #A8F0FF;
-    transform: scale(1.038);
-    box-shadow: 8px 8px 8px #A8F0FF;
-    transition: all 0.3s linear;
+    .flip-card-front img {
+        min-height: 200px;
+    }
 }
