@@ -24,6 +24,326 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/team.css">
+    <style>
+        /* ========================================
+       FLIP CARD ANIMATION STYLES
+       ======================================== */
+
+        /* Flip Card Container */
+        .flip-card {
+            perspective: 1000px;
+            height: 320px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        /* Flip on hover for desktop */
+        @media (hover: hover) and (pointer: fine) {
+            .flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+        }
+
+        /* Flip on click/tap (toggled via JS for mobile) */
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Card Face Base Styles */
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 16px;
+        }
+
+        /* Front Face - Existing card design */
+        .flip-card-front {
+            background: rgba(168, 240, 255, 0.03);
+            border: 1px solid rgba(168, 240, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .flip-card:hover .flip-card-front {
+            background: rgba(168, 240, 255, 0.06);
+            border-color: rgba(168, 240, 255, 0.25);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Back Face - Interests/Focus areas */
+        .flip-card-back {
+            background: linear-gradient(135deg, rgba(168, 240, 255, 0.08) 0%, rgba(54, 47, 90, 0.3) 100%);
+            border: 1px solid rgba(168, 240, 255, 0.25);
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 24px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(168, 240, 255, 0.1);
+        }
+
+        /* Back Card Content */
+        .back-title {
+            font-family: var(--font-display, 'Outfit', sans-serif);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary, #A8F0FF);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-title::before,
+        .back-title::after {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(168, 240, 255, 0.5));
+        }
+
+        .back-title::after {
+            background: linear-gradient(90deg, rgba(168, 240, 255, 0.5), transparent);
+        }
+
+        .back-name {
+            font-family: var(--font-display, 'Outfit', sans-serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .interests-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .interest-tag {
+            font-family: var(--font-body, 'Inter', sans-serif);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(168, 240, 255, 0.1);
+            border: 1px solid rgba(168, 240, 255, 0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .interest-tag:hover {
+            background: rgba(168, 240, 255, 0.2);
+            border-color: rgba(168, 240, 255, 0.4);
+        }
+
+        .back-bio {
+            font-family: var(--font-body, 'Inter', sans-serif);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-top: 16px;
+            max-width: 220px;
+        }
+
+        .flip-hint {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            font-family: var(--font-body, 'Inter', sans-serif);
+            font-size: 0.65rem;
+            color: rgba(168, 240, 255, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            pointer-events: none;
+        }
+
+        .flip-hint i {
+            font-size: 10px;
+        }
+
+        /* Mobile tap hint on front */
+        @media (hover: none) or (pointer: coarse) {
+            .flip-hint {
+                color: rgba(168, 240, 255, 0.6);
+            }
+        }
+
+        /* Profile image in flip card */
+        .flip-card .member-image {
+            width: 120px;
+            height: 120px;
+            margin: 0 0 20px 0;
+            position: relative;
+        }
+
+        .flip-card .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid rgba(168, 240, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .flip-card:hover .member-image img {
+            border-color: var(--primary, #A8F0FF);
+            box-shadow: 0 0 30px rgba(168, 240, 255, 0.3);
+        }
+
+        /* Member info in flip card */
+        .flip-card .member-name {
+            font-family: var(--font-display, 'Outfit', sans-serif);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0 0 6px 0;
+            line-height: 1.3;
+        }
+
+        .flip-card .member-role {
+            font-family: var(--font-body, 'Inter', sans-serif);
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--primary, #A8F0FF);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 0 0 16px 0;
+        }
+
+        .flip-card .member-socials {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .flip-card .member-socials a {
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(168, 240, 255, 0.1);
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .flip-card .member-socials a:hover {
+            background: var(--primary, #A8F0FF);
+            color: var(--dark-bg, #0A0A0A);
+            transform: translateY(-2px);
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            .flip-card-inner {
+                transition: none;
+            }
+
+            .flip-card:hover .flip-card-inner,
+            .flip-card.flipped .flip-card-inner {
+                transform: none;
+            }
+
+            /* Show both sides stacked for reduced motion */
+            .flip-card-back {
+                transform: none;
+                position: relative;
+                margin-top: 10px;
+                display: none;
+            }
+
+            .flip-card:hover .flip-card-back,
+            .flip-card.flipped .flip-card-back {
+                display: flex;
+            }
+
+            .flip-card:hover .flip-card-front,
+            .flip-card.flipped .flip-card-front {
+                display: none;
+            }
+
+            .flip-card {
+                height: auto;
+            }
+        }
+
+        /* Responsive adjustments for flip cards */
+        @media (max-width: 768px) {
+            .flip-card {
+                height: 300px;
+            }
+
+            .flip-card-front {
+                padding: 30px 20px;
+            }
+
+            .flip-card-back {
+                padding: 24px 18px;
+            }
+
+            .flip-card .member-image {
+                width: 90px;
+                height: 90px;
+                margin-bottom: 14px;
+            }
+
+            .flip-card .member-name {
+                font-size: 1rem;
+            }
+
+            .flip-card .member-role {
+                font-size: 0.7rem;
+            }
+
+            .interest-tag {
+                font-size: 0.7rem;
+                padding: 5px 10px;
+            }
+
+            .back-name {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .flip-card {
+                height: 320px;
+            }
+
+            .flip-card .member-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
 </head>
 
 <body class="scroll_bar_visible">
@@ -68,82 +388,14 @@
 
         <!-- Advisor Section -->
         <h2 class="team-section-title blur-text" data-animate-by="words" data-aos="fade-up">Advisor</h2>
-        <div class="executive-row" style="margin-bottom: 80px;">
-            <div class="member-card" data-aos="fade-up">
-                <div class="member-image">
-                    <img src="./images/Advisor.jpeg" alt="Club Advisor">
-                </div>
-                <h3 class="member-name">Dr. Shuib Basri</h3>
-                <p class="member-role">Club Advisor</p>
-                <div class="member-socials">
-                    <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fa fa-envelope"></i></a>
-                </div>
-            </div>
+        <div class="executive-row" id="advisor-container" style="margin-bottom: 80px;">
+            <!-- Advisor card will be loaded here -->
         </div>
 
         <!-- All Team Members -->
         <h2 class="team-section-title blur-text" data-animate-by="words" data-aos="fade-up">High Committees</h2>
-        <div class="leadership-grid">
-
-            <!-- President -->
-            <div class="member-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="member-image">
-                    <img src="./images/hannah.jpg" alt="Hannah Voznyuk Jeevan">
-                </div>
-                <h3 class="member-name">Hannah Voznyuk Jeevan</h3>
-                <p class="member-role">President</p>
-                <div class="member-socials">
-                    <a href="http://www.linkedin.com/in/hannah-jeevan-02352026a" target="_blank"><i
-                            class="fa fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/hannah_vj_05_too_2?igsh=NGtjbmg4c2V5c3Jx&utm_source=qr"
-                        target="_blank"><i class="fa fa-instagram"></i></a>
-                    <a href="https://github.com/hannahvj123" target="_blank"><i class="fa fa-github"></i></a>
-                </div>
-            </div>
-
-            <!-- Vice President -->
-            <div class="member-card" data-aos="fade-up" data-aos-delay="50">
-                <div class="member-image">
-                    <img src="./images/Vice President.jpeg" alt="Kshitija Bharambe">
-                </div>
-                <h3 class="member-name">Kshitija Bharambe</h3>
-                <p class="member-role">Vice-President</p>
-                <div class="member-socials">
-                    <a href="https://www.linkedin.com/in/kshitija-bharambe/" target="_blank"><i
-                            class="fa fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/_kshitijaaa_/" target="_blank"><i
-                            class="fa fa-instagram"></i></a>
-                    <a href="https://github.com/kshitija-2001" target="_blank"><i class="fa fa-github"></i></a>
-                </div>
-            </div>
-
-            <!-- Secretary -->
-            <div class="member-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="member-image">
-                    <img src="./images/Farah.jpeg" alt="Purva Kharsambale">
-                </div>
-                <h3 class="member-name">Nur Farah Aleya Binti Mohamad Noor’Azlan</h3>
-                <p class="member-role">Secretary</p>
-                <div class="member-socials">
-                    <a href="http://linkedin.com/in/farah-aleya-noor’azlan-009070320" target="_blank"><i
-                            class="fa fa-linkedin"></i></a>
-                </div>
-            </div>
-
-            <!-- Treasurer -->
-            <div class="member-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="member-image">
-                    <img src="./images/Saptesh Ahire.jpeg" alt="Saptesh Ahire">
-                </div>
-                <h3 class="member-name">Saptesh Ahire</h3>
-                <p class="member-role">Treasurer</p>
-                <div class="member-socials">
-                    <a href="https://www.google.com" target="_blank"><i class="fa fa-linkedin"></i></a>
-                    <a href="https://www.google.com" target="_blank"><i class="fa fa-instagram"></i></a>
-                    <a href="https://www.google.com" target="_blank"><i class="fa fa-github"></i></a>
-                </div>
-            </div>
+        <div class="leadership-grid" id="high-committee-grid">
+            <!-- High Committee cards will be loaded here -->
         </div>
     </div>
 
@@ -227,15 +479,169 @@
                 sparkCount: 12,
                 duration: 400
             });
-        });
-    </script>
-</body>
 
-<script>
-    AOS.init({
-        duration: 1000,
-        once: true
-    })
-</script>
+            // Load team data
+            fetchTeamData();
+        });
+
+        async function fetchTeamData() {
+            try {
+                const response = await fetch('team.json');
+                const teamData = await response.json();
+                renderTeam(teamData);
+            } catch (error) {
+                console.error('Error fetching team data:', error);
+            }
+        }
+
+        function renderTeam(members) {
+            const advisorContainer = document.getElementById('advisor-container');
+            const committeeGrid = document.getElementById('high-committee-grid');
+
+            // Filter members
+            const advisors = members.filter(m => m.role.includes('Advisor'));
+            const committees = members.filter(m => !m.role.includes('Advisor'));
+
+            // Render Advisor
+            if (advisorContainer && advisors.length > 0) {
+                advisorContainer.innerHTML = advisors.map((member, index) => createStaticCard(member, index)).join('');
+            }
+
+            // Render Committees
+            if (committeeGrid && committees.length > 0) {
+                committeeGrid.innerHTML = committees.map((member, index) => createFlipCard(member, index)).join('');
+            }
+
+            // Add mobile handlers and init AOS
+            addMobileFlipHandlers();
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+        }
+
+        function createStaticCard(member, index) {
+            // Generate social links
+            let socialsHtml = '';
+            if (member.socials) {
+                if (member.socials.linkedin) {
+                    socialsHtml += `<a href="${member.socials.linkedin}" target="_blank"><i class="fa fa-linkedin"></i></a>`;
+                }
+                if (member.socials.instagram) {
+                    socialsHtml += `<a href="${member.socials.instagram}" target="_blank"><i class="fa fa-instagram"></i></a>`;
+                }
+                if (member.socials.github) {
+                    socialsHtml += `<a href="${member.socials.github}" target="_blank"><i class="fa fa-github"></i></a>`;
+                }
+                if (member.socials.envelope) {
+                    socialsHtml += `<a href="${member.socials.envelope}" target="_blank"><i class="fa fa-envelope"></i></a>`;
+                }
+            }
+
+            // Return simple card structure without flip components
+            return `
+                <div class="member-card" data-aos="fade-up" data-aos-delay="${index * 50}">
+                    <div class="member-image">
+                        <img src="${member.image}" alt="${member.name}">
+                    </div>
+                    <h3 class="member-name">${member.name}</h3>
+                    <p class="member-role">${member.role}</p>
+                    <div class="member-socials">
+                        ${socialsHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        function createFlipCard(member, index) {
+            // Generate interest tags
+            const interestTags = (member.interests || []).map(interest =>
+                `<span class="interest-tag">${interest}</span>`
+            ).join('');
+
+            // Generate social links
+            let socialsHtml = '';
+            if (member.socials) {
+                if (member.socials.linkedin) {
+                    socialsHtml += `<a href="${member.socials.linkedin}" target="_blank"><i class="fa fa-linkedin"></i></a>`;
+                }
+                if (member.socials.instagram) {
+                    socialsHtml += `<a href="${member.socials.instagram}" target="_blank"><i class="fa fa-instagram"></i></a>`;
+                }
+                if (member.socials.github) {
+                    socialsHtml += `<a href="${member.socials.github}" target="_blank"><i class="fa fa-github"></i></a>`;
+                }
+                if (member.socials.envelope) {
+                    socialsHtml += `<a href="${member.socials.envelope}" target="_blank"><i class="fa fa-envelope"></i></a>`;
+                }
+            }
+
+            return `
+                <div class="flip-card" data-aos="fade-up" data-aos-delay="${index * 50}">
+                    <div class="flip-card-inner">
+                        <!-- Front Side -->
+                        <div class="flip-card-front">
+                            <div class="member-image">
+                                <img src="${member.image}" alt="${member.name}">
+                            </div>
+                            <h3 class="member-name">${member.name}</h3>
+                            <p class="member-role">${member.role}</p>
+                            <span class="flip-hint">
+                                <i class="ri-refresh-line"></i> Hover to flip
+                            </span>
+                        </div>
+                        
+                        <!-- Back Side -->
+                        <div class="flip-card-back">
+                            <span class="back-title">Interests</span>
+                            <h4 class="back-name">${member.name}</h4>
+                            <div class="interests-list">
+                                ${interestTags}
+                            </div>
+                            <p class="back-bio">${member.bio || ''}</p>
+                            
+                            <!-- Social links moved to back -->
+                            <div class="member-socials" style="margin-top: auto; margin-bottom: 25px;">
+                                ${socialsHtml}
+                            </div>
+                            
+                            <span class="flip-hint">
+                                <i class="ri-refresh-line"></i> Flip back
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Mobile flip toggle handler
+        function addMobileFlipHandlers() {
+            const isTouchDevice = ('ontouchstart' in window) ||
+                (navigator.maxTouchPoints > 0) ||
+                (navigator.msMaxTouchPoints > 0);
+
+            if (isTouchDevice || !window.matchMedia('(hover: hover)').matches) {
+                const flipCards = document.querySelectorAll('.flip-card');
+
+                flipCards.forEach(card => {
+                    card.addEventListener('click', function (e) {
+                        // Don't flip if clicking on a link
+                        if (e.target.tagName === 'A' || e.target.closest('a')) {
+                            return;
+                        }
+                        this.classList.toggle('flipped');
+                    });
+                });
+
+                // Update hint text for mobile
+                document.querySelectorAll('.flip-card-front .flip-hint').forEach(hint => {
+                    hint.innerHTML = '<i class="ri-hand-coin-line"></i> Tap to flip';
+                });
+                document.querySelectorAll('.flip-card-back .flip-hint').forEach(hint => {
+                    hint.innerHTML = '<i class="ri-hand-coin-line"></i> Tap to flip back';
+                });
+            }
+        }
+    </script>
 
 </html>

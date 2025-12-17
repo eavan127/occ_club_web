@@ -1,0 +1,91 @@
+[
+    {
+        "name": "Dr. Shuib Basri",
+        "role": "Club Advisor",
+        "image": "./images/Advisor.jpeg",
+        "socials": {
+            "linkedin": "#",
+            "envelope": "#"
+        },
+        "bio": "Guiding the club with wisdom and academic excellence.",
+        "interests": [
+            "Academic Leadership",
+            "Research",
+            "Mentorship"
+        ]
+    },
+    {
+        "name": "Hannah Voznyuk Jeevan",
+        "role": "President",
+        "image": "./images/hannah.jpg",
+        "socials": {
+            "linkedin": "http://www.linkedin.com/in/hannah-jeevan-02352026a",
+            "instagram": "https://www.instagram.com/hannah_vj_05_too_2?igsh=NGtjbmg4c2V5c3Jx&utm_source=qr",
+            "github": "https://github.com/hannahvj123"
+        },
+        "interests": [
+            "Data Analytics"
+        ]
+    },
+    {
+        "name": "Harresh Varma",
+        "role": "Vice-President",
+        "image": "./images/Vice President.jpeg",
+        "socials": {
+            "linkedin": "https://www.linkedin.com/in/kshitija-bharambe/",
+            "instagram": "https://www.instagram.com/_kshitijaaa_/",
+            "github": "https://github.com/kshitija-2001"
+        }
+    },
+    {
+        "name": "Nur Farah Aleya Binti Mohamad Noor’Azlan",
+        "role": "Secretary",
+        "image": "./images/Farah.jpeg",
+        "socials": {
+            "linkedin": "http://linkedin.com/in/farah-aleya-noor’azlan-009070320"
+        },
+        "interests": [
+            "Data Analytics"
+        ]
+    },
+    {
+        "name": "Saptesh Ahire",
+        "role": "Treasurer",
+        "image": "./images/Saptesh Ahire.jpeg",
+        "socials": {
+            "linkedin": "https://www.google.com",
+            "instagram": "https://www.google.com",
+            "github": "https://www.google.com"
+        },
+        "bio": "Managing finances and ensuring fiscal responsibility.",
+        "interests": [
+            "Finance",
+            "Budgeting",
+            "Resource Allocation"
+        ]
+    },
+    {
+        "name": "Douglas Rag",
+        "role": "Student Advisor",
+        "image": "./images/Douglas.jpeg",
+        "socials": {
+            "linkedin": "https://www.google.com",
+            "instagram": "https://www.google.com",
+            "github": "https://www.google.com"
+        }
+    },
+    {
+        "name": "Clement Yap",
+        "role": "Photographer",
+        "image": "./images/CLEMENT YAP.jpeg",
+        "socials": {
+            "linkedin": "https://www.google.com",
+            "instagram": "https://www.google.com",
+            "github": "https://www.google.com"
+        },
+        "interests": [
+            "Server hardware",
+            "Linux"
+        ]
+    }
+]
