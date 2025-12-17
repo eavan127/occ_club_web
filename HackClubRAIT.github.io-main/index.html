@@ -182,37 +182,42 @@
       </div>
     </div>
 
-    <div class="context"></div>
+    <!-- Context div removed -->
 
     <!-- About Section -->
     <!-- Framework Section (About & Mission Redesign) -->
     <div id="home_about" class="framework-section">
       <div class="framework-container">
 
-        <!-- Left Column: Headline & Intro -->
+        <!-- Left Column: Image/Visual Card -->
         <div class="framework-left" data-aos="fade-right" data-aos-duration="1000">
-          <span class="framework-label">OUR PROCESS</span>
           <!-- High-Tech Visual with Animation -->
-          <div class="tech-visual-container" data-aos="zoom-in" data-aos-duration="1200">
-            <img src="images/tech_hero_visual.png" class="tech-hero-image" alt="High Technology Visual">
+          <div class="tech-visual-container cinematic-reveal-container" data-aos="zoom-in" data-aos-duration="1200">
+            <img src="./images/DevFest Singapore.jpeg" class="tech-hero-image cinematic-reveal" alt="DevFest Singapore">
           </div>
-          <h2 class="framework-headline blur-text" data-animate-by="words" data-direction="top">
-            A community that drives excellence
-          </h2>
-          <p class="framework-description">
-            Every journey starts with genuine curiosity and grows through collaboration that is intentional,
-            thoughtful, and built for the future. This creates a foundation that works clearly,
-            builds trust, and delivers skills that continue to evolve.
-          </p>
-          <a href="contact.html" class="btn-framework">
-            TAKE THE FIRST STEP <i class="ri-arrow-right-line"></i>
-          </a>
         </div>
 
-        <!-- Right Column: Timeline -->
-        <!-- Right Column Wrapper -->
+        <!-- Right Column: Text Content & Timeline -->
         <div class="framework-right-wrapper">
-          <div class="framework-timeline" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+
+          <!-- Section Text Content -->
+          <div class="framework-content-text" data-aos="fade-left" data-aos-duration="1000">
+            <span class="framework-label">OUR PROCESS</span>
+            <h2 class="framework-headline blur-text" data-animate-by="words" data-direction="top">
+              A community that drives excellence
+            </h2>
+            <p class="framework-description">
+              Every journey starts with genuine curiosity and grows through collaboration that is intentional,
+              thoughtful, and built for the future. This creates a foundation that works clearly,
+              builds trust, and delivers skills that continue to evolve.
+            </p>
+            <a href="contact.html" class="btn-framework">
+              TAKE THE FIRST STEP <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+
+          <!-- Timeline -->
+          <div class="framework-timeline" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
 
             <!-- Step 1 -->
             <div class="timeline-item" id="step-1">
@@ -536,6 +541,24 @@
         opacity: 0.8,
         mouseInteractive: true
       });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Cinematic Scroll Reveal for DevFest Image
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      const target = document.querySelector('.cinematic-reveal');
+      if (target) {
+        observer.observe(target);
+      }
     });
   </script>
 </body>

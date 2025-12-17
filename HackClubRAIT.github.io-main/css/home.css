@@ -13,6 +13,7 @@
     overflow: hidden;
     min-height: 100vh;
     padding-top: 80px;
+    padding-bottom: 0;
     /* Offset for naive sticky navbar */
 }
 
@@ -470,7 +471,8 @@
    FRAMEWORK SECTION (About & Mission Redesign)
    ======================================== */
 .framework-section {
-    padding: 60px 5%;
+    padding: 0px 5% 60px;
+    margin-top: 0;
     background-color: #000;
     color: #fff;
     position: relative;
@@ -494,10 +496,12 @@
 /* Left Column */
 .framework-left {
     position: relative;
-    height: fit-content;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    padding: 0 40px;
 }
 
 .framework-label {
@@ -556,8 +560,9 @@
 
 /* High-Tech Visual with Glow Animation */
 .tech-visual-container {
-    margin: 10px 0 15px 0;
-    max-width: 280px;
+    margin: 0;
+    width: 100%;
+    max-width: 500px;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
@@ -590,6 +595,15 @@
     }
 }
 
+/* Right Column Wrapper */
+.framework-right-wrapper {
+    position: relative;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /* Right Column: Timeline (Horizontal Slider) */
 .framework-timeline {
     position: relative;
@@ -605,6 +619,7 @@
     -ms-overflow-style: none;
     /* Hide scrollbar IE/Edge */
     scroll-behavior: smooth;
+    padding-top: 20px;
 }
 
 .framework-timeline::-webkit-scrollbar {
@@ -616,8 +631,8 @@
     position: relative;
     min-width: 100%;
     /* Full width of container */
-    height: calc(100vh - 200px);
-    max-height: 550px;
+    height: 450px;
+    /* Fixed height for better balance */
     /* Fixed height frame for "book" feel */
     display: flex;
     flex-direction: column;
@@ -788,6 +803,12 @@
     }
 
     /* Centering Framework Section for Mobile */
+    .framework-right-wrapper {
+        padding: 20px 0;
+        text-align: center;
+        align-items: center;
+    }
+
     .framework-left {
         text-align: center;
         display: flex;
@@ -1225,4 +1246,19 @@
     .vision-video-wrapper {
         border-radius: 12px 12px 0 0;
     }
+}
+
+/* ========================================
+   CINEMATIC REVEAL ANIMATION
+   ======================================== */
+.cinematic-reveal {
+    opacity: 0;
+    transform: translateY(50px) scale(0.96);
+    transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.cinematic-reveal.reveal-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
