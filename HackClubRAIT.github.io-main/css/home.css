@@ -317,12 +317,12 @@
     .hero-text-col {
         padding-right: 15px;
         padding-left: 15px;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
         text-align: center;
     }
 
     .bento-subtitle {
-        margin: 0 auto 3rem;
+        margin: 0 auto 1.5rem;
         padding-left: 0;
         border-left: none;
         border-top: 2px solid var(--primary);
@@ -361,6 +361,14 @@
         width: 100%;
         max-width: 300px;
         margin: 0 auto 2rem;
+        align-items: center;
+    }
+
+    .hero-text-col {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .btn-hatamex-blue,
@@ -383,7 +391,8 @@
 
 @media (max-width: 576px) {
     .hero-bento-container {
-        padding: 90px 0 40px;
+        padding: 70px 0 20px;
+        min-height: auto;
     }
 
     .hero-grid-col {
@@ -423,18 +432,37 @@
     }
 }
 
-/* Extra small screens */
+/* Extra small screens (Android phones) */
 @media (max-width: 400px) {
     .bento-title {
         font-size: 1.75rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .bento-subtitle {
         font-size: 0.9rem;
+        padding-right: 10px;
     }
 
     .hero-grid-col {
         height: 250px;
+    }
+
+    .bento-cta-group {
+        max-width: 280px;
+        padding: 0 10px;
+    }
+
+    .btn-hatamex-blue,
+    .btn-hatamex-outline {
+        padding: 12px 16px;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
+    .hero-text-col {
+        padding: 0 15px;
     }
 }
 
@@ -442,12 +470,12 @@
    FRAMEWORK SECTION (About & Mission Redesign)
    ======================================== */
 .framework-section {
-    padding: 80px 5%;
+    padding: 60px 5%;
     background-color: #000;
     color: #fff;
     position: relative;
     overflow: hidden;
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     align-items: center;
 }
@@ -474,11 +502,11 @@
 
 .framework-label {
     font-family: var(--font-display);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     letter-spacing: 2px;
     color: #666;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     display: block;
 }
 
@@ -487,7 +515,7 @@
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     line-height: 1.1;
     font-weight: 500;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     background: linear-gradient(to right, #fff, #aaa);
     -webkit-background-clip: text;
     background-clip: text;
@@ -499,7 +527,7 @@
     font-size: 1.1rem;
     line-height: 1.8;
     color: #a0a0a0;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     max-width: 500px;
 }
 
@@ -528,9 +556,9 @@
 
 /* High-Tech Visual with Glow Animation */
 .tech-visual-container {
-    margin: 20px 0 30px 0;
-    max-width: 400px;
-    border-radius: 12px;
+    margin: 10px 0 15px 0;
+    max-width: 280px;
+    border-radius: 10px;
     overflow: hidden;
     position: relative;
 }
