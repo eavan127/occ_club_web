@@ -104,7 +104,7 @@
           </li>
           <li><a href="blogs.html" class="hover-line nav navbars">BLOGS</a></li>
           <li>
-            <a href="contact.html" class="hover-line nav navbars">CONTACT US</a>
+            <a href="contact.html" class="hover-line nav navbars">JOIN US</a>
           </li>
         </ul>
       </div>
@@ -113,9 +113,9 @@
     <!-- Hero Section - Bento Grid Layout -->
     <div id="hero-wrapper" class="hero-bento-container"
       style="position: relative; width: 100%; min-height: 100vh; overflow: hidden; display: flex; align-items: center;">
-      <!-- Antigravity Animation Background (Kept as subtle layer) -->
+      <!-- Plasma Animation Background -->
       <div id="antigravity-bg"
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.3; pointer-events: none;">
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;">
       </div>
 
       <div class="container-fluid" style="position: relative; z-index: 2; width: 100%; padding-top: 80px;">
@@ -192,8 +192,12 @@
         <!-- Left Column: Headline & Intro -->
         <div class="framework-left" data-aos="fade-right" data-aos-duration="1000">
           <span class="framework-label">OUR PROCESS</span>
-          <h2 class="framework-headline">
-            A community that drives <br> excellence
+          <!-- High-Tech Visual with Animation -->
+          <div class="tech-visual-container" data-aos="zoom-in" data-aos-duration="1200">
+            <img src="images/tech_hero_visual.png" class="tech-hero-image" alt="High Technology Visual">
+          </div>
+          <h2 class="framework-headline blur-text" data-animate-by="words" data-direction="top">
+            A community that drives excellence
           </h2>
           <p class="framework-description">
             Every journey starts with genuine curiosity and grows through collaboration that is intentional,
@@ -213,7 +217,7 @@
             <!-- Step 1 -->
             <div class="timeline-item" id="step-1">
               <div class="timeline-marker">1</div>
-              <h3 class="timeline-title">LEARN</h3>
+              <h3 class="timeline-title blur-text" data-animate-by="characters" data-delay="50">LEARN</h3>
               <p class="timeline-desc">
                 We provide the resources, workshops, and mentorship you need to start with complete clarity on what
                 truly
@@ -225,7 +229,7 @@
             <!-- Step 2 -->
             <div class="timeline-item" id="step-2">
               <div class="timeline-marker">2</div>
-              <h3 class="timeline-title">BUILD</h3>
+              <h3 class="timeline-title blur-text" data-animate-by="characters" data-delay="50">BUILD</h3>
               <p class="timeline-desc">
                 We translate knowledge into concrete, real-world projects and open-source contributions that steer your
                 career forward.
@@ -236,7 +240,7 @@
             <!-- Step 3 -->
             <div class="timeline-item" id="step-3">
               <div class="timeline-marker">3</div>
-              <h3 class="timeline-title">GROW</h3>
+              <h3 class="timeline-title blur-text" data-animate-by="characters" data-delay="50">GROW</h3>
               <p class="timeline-desc">
                 We design and develop a network that's scalable, supportive, and effortless to access for every student.
               </p>
@@ -385,7 +389,7 @@
               <li><a href="ongoing.html">ONGOING EVENTS</a></li>
               <li><a href="past.html">PAST EVENTS</a></li>
               <li><a href="blogs.html">BLOGS</a></li>
-              <li><a href="contact.html">CONTACT US</a></li>
+              <li><a href="contact.html">JOIN US</a></li>
             </ul>
           </div>
 
@@ -507,6 +511,7 @@
     </script>
   </div> <!-- end #main-content-wrapper -->
   <script src="js/home-timeline.js"></script>
+  <script src="js/blur-text.js"></script>
   <script src="js/click-spark.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -517,6 +522,19 @@
         sparkRadius: 20,
         sparkCount: 12,
         duration: 400
+      });
+    });
+  </script>
+  <script src="js/plasma.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Initialize Plasma effect on hero background
+      new Plasma('#antigravity-bg', {
+        color: '#A8F0FF',
+        speed: 0.8,
+        scale: 1.0,
+        opacity: 0.8,
+        mouseInteractive: true
       });
     });
   </script>

@@ -327,6 +327,7 @@
         border-left: none;
         border-top: 2px solid var(--primary);
         padding-top: 15px;
+        text-align: center;
     }
 
     .bento-cta-group,
@@ -441,11 +442,14 @@
    FRAMEWORK SECTION (About & Mission Redesign)
    ======================================== */
 .framework-section {
-    padding: 120px 5%;
+    padding: 80px 5%;
     background-color: #000;
     color: #fff;
     position: relative;
     overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .framework-container {
@@ -461,9 +465,11 @@
 
 /* Left Column */
 .framework-left {
-    position: sticky;
-    top: 150px;
+    position: relative;
     height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .framework-label {
@@ -520,6 +526,42 @@
     transform: translateY(-2px);
 }
 
+/* High-Tech Visual with Glow Animation */
+.tech-visual-container {
+    margin: 20px 0 30px 0;
+    max-width: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.tech-hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    animation: techGlow 3s ease-in-out infinite alternate;
+    box-shadow: 0 0 30px rgba(168, 240, 255, 0.3);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.tech-hero-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 50px rgba(168, 240, 255, 0.6), 0 0 80px rgba(47, 85, 212, 0.4);
+}
+
+@keyframes techGlow {
+    0% {
+        box-shadow: 0 0 20px rgba(168, 240, 255, 0.2), 0 0 40px rgba(47, 85, 212, 0.1);
+        filter: brightness(1);
+    }
+
+    100% {
+        box-shadow: 0 0 40px rgba(168, 240, 255, 0.5), 0 0 70px rgba(47, 85, 212, 0.3);
+        filter: brightness(1.1);
+    }
+}
+
 /* Right Column: Timeline (Horizontal Slider) */
 .framework-timeline {
     position: relative;
@@ -546,7 +588,8 @@
     position: relative;
     min-width: 100%;
     /* Full width of container */
-    height: 600px;
+    height: calc(100vh - 200px);
+    max-height: 550px;
     /* Fixed height frame for "book" feel */
     display: flex;
     flex-direction: column;
@@ -660,7 +703,7 @@
 
 .timeline-visual {
     width: 100%;
-    height: 250px;
+    height: 200px;
     object-fit: cover;
     border-radius: 12px;
     margin-top: 30px;
@@ -714,6 +757,78 @@
 
     .timeline-marker {
         left: -50px;
+    }
+
+    /* Centering Framework Section for Mobile */
+    .framework-left {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        /* Ensure full width */
+    }
+
+    .framework-headline {
+        font-size: 2.5rem;
+        /* Reduce size for mobile */
+    }
+
+    .framework-description {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
+    .framework-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Fix timeline text overflow on mobile - keep swipe functionality */
+    .framework-timeline {
+        padding-left: 0;
+        padding-right: 0;
+        /* Keep overflow-x: auto for swiping */
+    }
+
+    .timeline-item {
+        min-width: 100%;
+        width: 100%;
+        padding: 20px 20px;
+        height: auto;
+        min-height: 500px;
+        box-sizing: border-box;
+        /* Ensure content stays within bounds */
+        overflow: hidden;
+    }
+
+    .timeline-title {
+        font-size: 1.5rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: calc(100vw - 60px);
+    }
+
+    .timeline-desc {
+        font-size: 0.9rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: calc(100vw - 60px);
+    }
+
+    .timeline-visual {
+        max-width: calc(100vw - 60px);
+        height: 180px;
+    }
+
+    .timeline-navigation {
+        left: 50%;
+        bottom: 20px;
+    }
+
+    .timeline-marker {
+        display: none;
     }
 }
 
@@ -778,6 +893,32 @@
     transform: translateY(-2px);
     border-color: #111;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Drive Section Mobile Responsive */
+@media (max-width: 992px) {
+
+    .drive-grid,
+    .drive-grid-bottom {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .drive-headline {
+        font-size: 2.5rem;
+    }
+
+    .drive-grid,
+    .drive-grid-bottom {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .drive-card {
+        padding: 30px 20px;
+    }
 }
 
 .card-header {
@@ -858,6 +999,28 @@
 
     .card-desc {
         font-size: 0.9rem;
+    }
+
+    /* Center Drive Section Content on Mobile */
+    .drive-card {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-header {
+        width: 100%;
+        justify-content: center;
+        flex-direction: column-reverse;
+        /* Icon on top if desired, or keep as is but centered */
+        gap: 15px;
+        align-items: center;
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+        text-align: center;
     }
 }
 

@@ -11,6 +11,9 @@
    CSS VARIABLES - DESIGN TOKENS
    ======================================== */
 :root {
+    /* Progress Bar Fix */
+    --progress-height: 3px;
+
     /* Primary Colors */
     --primary: #A8F0FF;
     --primary-dark: #7DD8F0;
@@ -125,6 +128,24 @@ nav {
     position: sticky;
     top: 0;
     z-index: 999;
+}
+
+/* Fix for progress container breaking navbar layout */
+.progress-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--progress-height, 3px);
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--primary);
+    width: 0%;
+    transition: width 0.1s ease;
 }
 
 .navbars {
@@ -538,22 +559,42 @@ nav {
    ======================================== */
 
 /* Medium screens and tablets */
-@media (max-width: 768px) {
+/* Medium screens and tablets */
+@media (max-width: 992px) {
 
-    /* Navigation */
-    #logo {
-        width: 45px;
-        height: 45px;
-        margin-top: -5px;
+    /* Restore brand text on mobile/tablet but resize to fit */
+    .logo_header {
+        display: block !important;
+        padding-left: 8px;
+        line-height: 1.1;
     }
 
-    .logo_header {
-        padding-left: 10px;
-        font-size: 0.9rem;
+    .logo_header span {
+        font-size: 0.8rem;
+        white-space: nowrap;
+        display: block;
+    }
+
+    /* Ensure toggler is pushed to right */
+    .navbar-toggler {
+        margin-left: auto;
+    }
+
+    nav {
+        justify-content: space-between;
+        padding: 5px 15px;
+    }
+
+    /* Navigation Logo */
+    #logo {
+        width: 40px;
+        height: 40px;
+        margin-top: 0;
     }
 
     .header {
         font-size: 1.1em;
+        align-items: center;
     }
 
     /* Buttons - ensure touch-friendly */
@@ -602,9 +643,8 @@ nav {
 @media (max-width: 576px) {
 
     /* Navigation */
-    .logo_header {
-        display: none;
-    }
+    /* .logo_header is restored above */
+
 
     #logo {
         width: 40px;
@@ -674,5 +714,43 @@ nav {
 
     .copyright {
         font-size: 0.75rem;
+    }
+}
+
+/* ========================================
+   FORCE HEADER TEXT VISIBILITY ON ALL SCREENS
+   ======================================== */
+/* Higher specificity to override any conflicting rules */
+nav.navbar .header .logo_header,
+.navbar .header .logo_header,
+nav .header .logo_header {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+nav.navbar .header .logo_header span,
+.navbar .header .logo_header span,
+nav .header .logo_header span {
+    display: inline !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #a8f0ff !important;
+    font-size: 0.9rem !important;
+    white-space: nowrap;
+}
+
+/* On small mobile screens, slightly reduce size */
+@media (max-width: 576px) {
+
+    nav.navbar .header .logo_header span,
+    .navbar .header .logo_header span,
+    nav .header .logo_header span {
+        font-size: 0.75rem !important;
+    }
+
+    nav .header {
+        display: flex !important;
+        align-items: center !important;
     }
 }

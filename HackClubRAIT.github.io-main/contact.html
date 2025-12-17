@@ -12,6 +12,7 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.9/css/boxicons.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
   <!-- ✅ Use ONE Bootstrap version (v4 here) -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -74,7 +75,7 @@
 
       <!-- Left Side: Heading & Info -->
       <div class="contact-left">
-        <h1>Ready to <span>Join Us</span>?</h1>
+        <h1 class="blur-text" data-animate-by="words" data-direction="top">Ready to <span>Join Us</span>?</h1>
         <p class="info-subtitle">You're one click away from the next step. Send us a message or reach out directly.</p>
 
         <div class="contact-info-block">
@@ -131,6 +132,73 @@
     </div>
   </section>
 
+  <!-- Footer -->
+  <!-- Footer - Elegant Hatamex Style -->
+  <footer class="footer-elegant">
+    <div class="footer-container">
+
+      <!-- Footer Top: Brand -->
+      <div class="footer-top-row">
+        <div class="footer-brand-area">
+          <div class="brand-row">
+            <img src="./images/opportunities images/OCC Logo.png" alt="OCC Logo" class="footer-logo-sw">
+            <span class="brand-name">OPEN COMPUTING CLUB</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Grid: Navigation Columns -->
+      <div class="footer-grid">
+        <!-- Col 1: Navigation -->
+        <div class="footer-col">
+          <h4 class="footer-heading">NAVIGATION</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="ongoing.html">ONGOING EVENTS</a></li>
+            <li><a href="past.html">PAST EVENTS</a></li>
+            <li><a href="blogs.html">BLOGS</a></li>
+            <li><a href="contact.html">JOIN US</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Headquarters -->
+        <div class="footer-col">
+          <h4 class="footer-heading">HEADQUARTERS</h4>
+          <address class="footer-address">
+            UNIVERSITI TEKNOLOGI PETRONAS<br>
+            32610 SERI ISKANDAR<br>
+            PERAK, MALAYSIA
+          </address>
+        </div>
+
+        <!-- Col 3: Reach Out -->
+        <div class="footer-col">
+          <h4 class="footer-heading">REACH OUT</h4>
+          <a href="mailto:hackclubrait@gmail.com" class="footer-mail">HACKCLUBRAIT@GMAIL.COM</a>
+        </div>
+      </div>
+
+      <!-- Footer Bottom: Copyright & Socials -->
+      <div class="footer-bottom">
+        <div class="copyright">
+          &copy; 2025 OPEN COMPUTING CLUB. ALL RIGHTS RESERVED.
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/HackClubRAIT" target="_blank" class="social-btn"><i
+              class="ri-github-fill"></i></a>
+          <a href="https://www.instagram.com/utp.occ" target="_blank" class="social-btn"><i
+              class="ri-instagram-line"></i></a>
+          <a href="https://www.linkedin.com/company/open-computing-club/" target="_blank" class="social-btn"><i
+              class="ri-linkedin-fill"></i></a>
+          <a href="https://discord.gg/YOUR_INVITE_CODE" target="_blank" class="social-btn"><i
+              class="ri-discord-fill"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
   <!-- JS (order matters for Bootstrap 4) -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -143,6 +211,7 @@
     crossorigin="anonymous"></script>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/blur-text.js"></script>
 
   <script>
     AOS.init({ duration: 1200 });
