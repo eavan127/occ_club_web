@@ -210,7 +210,7 @@ nav {
 
 .header {
     font-weight: 600;
-    font-size: 1.3em;
+    font-size: 1.8em;
     padding-left: 10px;
     margin-top: 10px;
 }
@@ -218,6 +218,7 @@ nav {
 .logo_header {
     padding-left: 17px;
     padding-top: 4px;
+    font-size: 1.4rem;
 }
 
 /* ========================================
@@ -409,6 +410,11 @@ nav {
 .footer-mail:hover {
     color: #2F55D4;
     /* Electric Blue/Primary */
+}
+
+.footer-links a.active {
+    color: #A8F0FF;
+    /* Primary cyan for current page */
 }
 
 .footer-mail {
