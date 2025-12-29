@@ -115,6 +115,59 @@
     border-color: #A8F0FF;
 }
 
+/* Contact Person Styles */
+.contact-person {
+    margin-bottom: 12px;
+}
+
+.contact-name {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.phone-link {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.phone-link:hover {
+    color: #A8F0FF;
+}
+
+/* Contact Links Container */
+.contact-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(37, 211, 102, 0.15);
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    border-radius: 8px;
+    color: #25D366;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-link:hover {
+    background: #25D366;
+    border-color: #25D366;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
 /* Social Links */
 .contact-socials {
     display: flex;

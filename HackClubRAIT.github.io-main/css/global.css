@@ -426,6 +426,58 @@ nav {
     display: inline-block;
 }
 
+/* Footer Contact Person Styles */
+.footer-contact {
+    margin-bottom: 15px;
+}
+
+.footer-contact-name {
+    display: block;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.footer-phone {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-phone:hover {
+    color: #A8F0FF;
+}
+
+/* Footer Contact Links Container */
+.footer-contact-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: rgba(37, 211, 102, 0.15);
+    border-radius: 6px;
+    color: #25D366;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-whatsapp:hover {
+    background: #25D366;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
 /* Social Grid */
 .footer-socials {
     display: flex;
