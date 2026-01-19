@@ -242,6 +242,11 @@
     .member-role {
         font-size: 0.75rem;
     }
+
+    /* Center section titles on mobile */
+    .team-section-title {
+        text-align: center !important;
+    }
 }
 
 @media (max-width: 576px) {

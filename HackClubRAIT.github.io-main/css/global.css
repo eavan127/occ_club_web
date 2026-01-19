@@ -71,6 +71,13 @@
     font-family: var(--font-display);
     font-weight: 700;
     color: #ffffff;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3em;
 }
 
 .gradient-title span {
@@ -80,6 +87,11 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: gradient-shift 4s ease infinite;
+}
+
+/* Ensure blur-text words inside gradient-title stay centered */
+.gradient-title .blur-text-word {
+    display: inline-block;
 }
 
 @keyframes gradient-shift {
@@ -93,6 +105,23 @@
 
     100% {
         background-position: 0% 50%;
+    }
+}
+
+/* Mobile responsive gradient title */
+@media (max-width: 768px) {
+    .gradient-title {
+        text-align: center !important;
+        justify-content: center !important;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .gradient-title {
+        text-align: center !important;
+        justify-content: center !important;
+        padding: 0 10px;
     }
 }
 
@@ -238,19 +267,19 @@ nav {
 .header {
     display: flex;
     text-decoration: none !important;
-}
-
-.header {
+    align-items: center;
     font-weight: 600;
     font-size: 1.8em;
     padding-left: 10px;
-    margin-top: 10px;
+    margin-top: 0;
 }
 
 .logo_header {
-    padding-left: 17px;
-    padding-top: 4px;
-    font-size: 1.4rem;
+    padding-left: 12px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    margin-top: 0;
 }
 
 /* ========================================
@@ -787,6 +816,19 @@ nav {
         justify-content: center;
     }
 
+    /* Center contact info on mobile */
+    .footer-contact {
+        text-align: center;
+    }
+
+    .footer-contact-name {
+        text-align: center;
+    }
+
+    .footer-contact-links {
+        justify-content: center;
+    }
+
     /* Buttons full width on small screens */
     .btn-primary,
     .btn-secondary {
@@ -824,9 +866,11 @@ nav {
 nav.navbar .header .logo_header,
 .navbar .header .logo_header,
 nav .header .logo_header {
-    display: block !important;
+    display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
+    align-items: center !important;
+    margin-top: 0 !important;
 }
 
 nav.navbar .header .logo_header span,
@@ -836,8 +880,9 @@ nav .header .logo_header span {
     visibility: visible !important;
     opacity: 1 !important;
     color: #a8f0ff !important;
-    font-size: 0.9rem !important;
+    font-size: 1rem !important;
     white-space: nowrap;
+    line-height: 1;
 }
 
 /* On small mobile screens, slightly reduce size */
@@ -846,7 +891,7 @@ nav .header .logo_header span {
     nav.navbar .header .logo_header span,
     .navbar .header .logo_header span,
     nav .header .logo_header span {
-        font-size: 0.75rem !important;
+        font-size: 0.8rem !important;
     }
 
     nav .header {

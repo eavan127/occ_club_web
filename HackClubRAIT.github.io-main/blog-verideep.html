@@ -75,6 +75,11 @@
             overflow: hidden;
         }
 
+        /* Ensure body has proper background */
+        body {
+            background-color: #0A0A0A !important;
+        }
+
         .article-hero::before {
             content: '';
             position: absolute;
@@ -448,6 +453,14 @@
             transform: translateY(0);
         }
 
+        /* Force visibility on mobile to prevent content hiding if JS fails */
+        @media (max-width: 768px) {
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
         @media (max-width: 768px) {
             .article-title {
                 font-size: 2rem;
@@ -477,9 +490,6 @@
     <div class="particles" id="particles"></div>
 
     <nav class="nav navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="progress-container">
-            <div class="progress-bar" id="myBar"></div>
-        </div>
         <a class="header" href="index.html">
             <img id="logo" src="./images/opportunities images/OCC Logo.png" />
             <div class="logo_header">
