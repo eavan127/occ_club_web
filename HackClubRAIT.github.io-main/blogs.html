@@ -11,7 +11,6 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-  <!-- change this path if you upload an OCC favicon -->
   <link rel="icon" href="./images/hackclubrait-logo.png" />
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -22,18 +21,353 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-  <title>Blogs</title>
+  <title>Blogs | Open Computing Club</title>
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/blogs.css">
+  <style>
+    /* Enhanced Blog Page Styles */
+    .blog-hero {
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(ellipse, rgba(168, 240, 255, 0.12) 0%, transparent 60%);
+      pointer-events: none;
+      animation: pulse-glow 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        opacity: 0.6;
+        transform: translateX(-50%) scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.1);
+      }
+    }
+
+    .blog-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 4rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .blog-title span {
+      background: linear-gradient(135deg, #A8F0FF 0%, #FF9FFC 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .blog-subtitle {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      max-width: 500px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .underline-animated {
+      height: 4px;
+      width: 0;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #A8F0FF 0%, #FF9FFC 100%);
+      margin: 1.5rem auto 0;
+      animation: expand-line 1s ease-out 0.5s forwards;
+    }
+
+    @keyframes expand-line {
+      to {
+        width: 120px;
+      }
+    }
+
+    /* Featured Card Styles */
+    .featured-card {
+      background: linear-gradient(145deg, rgba(20, 20, 20, 0.9) 0%, rgba(30, 30, 30, 0.8) 100%);
+      border: 1px solid rgba(168, 240, 255, 0.2);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .featured-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(168, 240, 255, 0.1), transparent 30%);
+      animation: rotate-border 6s linear infinite;
+    }
+
+    @keyframes rotate-border {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .featured-card:hover {
+      border-color: rgba(168, 240, 255, 0.5);
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 50px rgba(168, 240, 255, 0.15);
+    }
+
+    .featured-card-inner {
+      position: relative;
+      z-index: 1;
+      background: rgba(10, 10, 10, 0.95);
+      border-radius: 16px;
+      padding: 0;
+    }
+
+    .card-badge-area {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(168, 240, 255, 0.15) 0%, rgba(255, 159, 252, 0.08) 100%);
+      border-radius: 16px 16px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-badge-area::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23A8F0FF' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .trophy-container {
+      text-align: center;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .trophy-icon {
+      font-size: 4rem;
+      display: block;
+      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+    }
+
+    .winner-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      background: linear-gradient(135deg, rgba(168, 240, 255, 0.2) 0%, rgba(255, 159, 252, 0.15) 100%);
+      border: 1px solid rgba(168, 240, 255, 0.4);
+      border-radius: 50px;
+      color: #A8F0FF;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 1rem;
+    }
+
+    .card-content {
+      padding: 1.5rem 1.5rem 2rem;
+    }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-author {
+      font-size: 0.95rem;
+      color: #A8F0FF;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-author i {
+      font-size: 1.1rem;
+    }
+
+    .card-description {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-glow {
+      padding: 12px 28px;
+      background: linear-gradient(135deg, #A8F0FF 0%, #7DD8F0 100%);
+      color: #0A0A0A;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(168, 240, 255, 0.3);
+    }
+
+    .btn-glow:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(168, 240, 255, 0.5);
+      color: #0A0A0A;
+      text-decoration: none;
+    }
+
+    .btn-outline-glow {
+      padding: 12px 28px;
+      background: transparent;
+      color: #A8F0FF;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 2px solid rgba(168, 240, 255, 0.4);
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-glow:hover {
+      background: rgba(168, 240, 255, 0.1);
+      border-color: #A8F0FF;
+      color: #A8F0FF;
+      text-decoration: none;
+      transform: translateY(-3px);
+    }
+
+    /* Floating particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #A8F0FF;
+      border-radius: 50%;
+      opacity: 0;
+      animation: particle-float 15s infinite linear;
+    }
+
+    @keyframes particle-float {
+      0% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(0deg);
+      }
+
+      10% {
+        opacity: 0.6;
+      }
+
+      90% {
+        opacity: 0.6;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-10vh) rotate(720deg);
+      }
+    }
+
+    /* Content wrapper */
+    .blog-content-wrapper {
+      position: relative;
+      z-index: 1;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .blog-title {
+        font-size: 2.5rem;
+      }
+
+      .blog-hero {
+        padding: 8rem 1.5rem 3rem;
+        min-height: 40vh;
+      }
+
+      .featured-card {
+        margin: 0 1rem;
+      }
+    }
+  </style>
 </head>
 
 <body class="scroll_bar_visible">
+  <!-- Floating Particles -->
+  <div class="particles" id="particles"></div>
+
   <nav class="nav navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="progress-container">
       <div class="progress-bar" id="myBar"></div>
     </div>
     <a class="header" href="index.html">
-      <!-- change this path if you upload an OCC logo file -->
       <img id="logo" src="./images/opportunities images/OCC Logo.png" />
       <div class="logo_header">
         <span style="color: #A8F0FF">Open Computing Club</span>
@@ -47,66 +381,60 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav navbars navbar-nav ml-auto">
         <li><a href="index.html" class="hover-line nav navbars">HOME</a></li>
-        <li>
-          <a href="ongoing.html" class="hover-line nav navbars">ONGOING EVENTS</a>
-        </li>
-        <li>
-          <a href="past.html" class="hover-line nav navbars">PAST EVENTS</a>
-        </li>
-        <li>
-          <a href="team.html" class="hover-line nav navbars">HIGH COMMITTEES</a>
-        </li>
-        <li>
-          <a href="contributer.html" class="hover-line nav navbars">COMMITTEES</a>
-        </li>
-        <li>
-          <a href="blogs.html" class="active hover-line nav navbars">BLOGS</a>
-        </li>
-        <li>
-          <a href="contact.html" class="hover-line nav navbars">JOIN US</a>
-        </li>
+        <li><a href="ongoing.html" class="hover-line nav navbars">ONGOING EVENTS</a></li>
+        <li><a href="past.html" class="hover-line nav navbars">PAST EVENTS</a></li>
+        <li><a href="team.html" class="hover-line nav navbars">HIGH COMMITTEES</a></li>
+        <li><a href="contributer.html" class="hover-line nav navbars">COMMITTEES</a></li>
+        <li><a href="blogs.html" class="active hover-line nav navbars">BLOGS</a></li>
+        <li><a href="contact.html" class="hover-line nav navbars">JOIN US</a></li>
       </ul>
     </div>
   </nav>
 
-  <h2 class="section-title">Blogs</h2>
-  <div class="underline"></div>
-  <div class="container-fluid" style="margin: 8rem auto">
-    <div class="row" style="justify-content: center">
-      <div class="col-lg-4 col-md-4 col-sm-12">
-        <div class="card">
-          <img src="./images/blog images/blog 1.jpeg" alt="" />
-          <h6>Data Science</h6>
-          <hr class="mx-auto w-100" />
-          <p>
-            Most people when asked about what they want to achieve or pursue
-            in the field of Computer Science and Technology they basically say
-            Data Science or Statistics.
-          </p>
-          <a class="btn btn-danger" href="https://medium.com/@royaman644/data-science-998eaf34f9a3" role="button">Read
-            More</a>
+  <!-- Blog Hero Section -->
+  <section class="blog-hero">
+    <h1 class="blog-title" data-aos="fade-down" data-aos-duration="800">
+      Our <span>Blogs</span>
+    </h1>
+    <p class="blog-subtitle" data-aos="fade-up" data-aos-delay="200">
+      Stories, insights, and achievements from our community
+    </p>
+    <div class="underline-animated"></div>
+  </section>
+
+  <!-- Blog Content -->
+  <section class="blog-content-wrapper">
+    <div class="featured-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
+      <div class="featured-card-inner">
+        <div class="card-badge-area">
+          <div class="trophy-container">
+            <span class="trophy-icon">🏆</span>
+            <span class="winner-badge">Hackathon Winner</span>
+          </div>
         </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-12">
-        <div class="card">
-          <img src="./images/blog images/blog 2.jpg" alt="" />
-          <h6>Git Series - Part I</h6>
-          <hr class="mx-auto w-100" />
-          <p>
-            In this part, I will be covering how you can push your code to
-            github from your local computer/laptop.
+        <div class="card-content">
+          <h3 class="card-title">VeriDeep: AI-Powered Deepfake Detection</h3>
+          <p class="card-author"><i class="ri-user-star-line"></i> By Eric Syamir</p>
+          <p class="card-description">
+            How LLM became the secret weapon to win the Petronas Group Security Cybercrime Hackathon. A deep dive into
+            multi-AI detection systems.
           </p>
-          <a class="btn btn-danger" href="https://dev.to/siddhi244/git-series-part-i-8pg" role="button">Read More</a>
+          <div class="card-actions">
+            <a href="blog-verideep.html" class="btn-glow">
+              <i class="ri-book-read-line"></i> Read Story
+            </a>
+            <a href="https://github.com/EricSyamir/petronascybersec" target="_blank" class="btn-outline-glow">
+              <i class="ri-github-fill"></i> GitHub
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
   <!-- Footer -->
-  <!-- Footer - Elegant Hatamex Style -->
   <footer class="footer-elegant">
     <div class="footer-container">
-
-      <!-- Footer Top: Brand -->
       <div class="footer-top-row">
         <div class="footer-brand-area">
           <div class="brand-row">
@@ -116,9 +444,7 @@
         </div>
       </div>
 
-      <!-- Footer Grid: Navigation Columns -->
       <div class="footer-grid">
-        <!-- Col 1: Navigation -->
         <div class="footer-col">
           <h4 class="footer-heading">NAVIGATION</h4>
           <ul class="footer-links">
@@ -132,7 +458,6 @@
           </ul>
         </div>
 
-        <!-- Col 2: Headquarters -->
         <div class="footer-col">
           <h4 class="footer-heading">HEADQUARTERS</h4>
           <address class="footer-address">
@@ -142,7 +467,6 @@
           </address>
         </div>
 
-        <!-- Col 3: Reach Out -->
         <div class="footer-col">
           <h4 class="footer-heading">REACH OUT</h4>
           <div class="footer-contact">
@@ -164,12 +488,10 @@
         </div>
       </div>
 
-      <!-- Footer Bottom: Copyright & Socials -->
       <div class="footer-bottom">
         <div class="copyright">
           &copy; 2025 OPEN COMPUTING CLUB. ALL RIGHTS RESERVED.
         </div>
-
         <div class="footer-socials">
           <a href="https://github.com/HackClubRAIT" target="_blank" class="social-btn"><i
               class="ri-github-fill"></i></a>
@@ -181,14 +503,28 @@
               class="ri-discord-fill"></i></a>
         </div>
       </div>
-
     </div>
   </footer>
+
   <script src="js/click-spark.js"></script>
   <script src="js/blur-text.js"></script>
   <script src="js/gradual-blur.js"></script>
   <script src="page-transition.js"></script>
+
   <script>
+    // Initialize AOS
+    AOS.init({ duration: 1200, once: true });
+
+    // Progress bar
+    document.getElementById("myBar").style.background = "#A8F0FF";
+    window.onscroll = function () {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      document.getElementById("myBar").style.width = scrolled + "%";
+    };
+
+    // Click Spark Effect
     document.addEventListener("DOMContentLoaded", function () {
       new ClickSpark({
         root: document.body,
@@ -198,24 +534,60 @@
         sparkCount: 12,
         duration: 400
       });
+
+      // Create floating particles
+      createParticles();
     });
+
+    // Floating Particles Animation
+    function createParticles() {
+      const container = document.getElementById('particles');
+      const particleCount = 30;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+
+        // Random position and timing
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 15 + 's';
+        particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+
+        // Random size
+        const size = 2 + Math.random() * 4;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+
+        // Random color between cyan and magenta
+        const hue = Math.random() > 0.5 ? '186' : '300';
+        particle.style.background = `hsl(${hue}, 100%, 75%)`;
+
+        container.appendChild(particle);
+      }
+    }
+
+    // Tilt effect on card hover
+    const card = document.querySelector('.featured-card');
+    if (card) {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+      });
+    }
   </script>
 </body>
-<script>
-  AOS.init({ duration: 1200 });
-  window.onscroll = function () {
-    myFunction();
-  };
-  document.getElementById("myBar").style.background = "#A8F0FF";
-  function myFunction() {
-    var winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-    var height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    var scrolled = (winScroll / height) * 100;
-    document.getElementById("myBar").style.width = scrolled + "%";
-  }
-</script>
 
 </html>

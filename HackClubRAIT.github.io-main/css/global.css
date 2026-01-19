@@ -65,6 +65,38 @@
 }
 
 /* ========================================
+   GRADIENT TITLE STYLING
+   ======================================== */
+.gradient-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.gradient-title span {
+    background: linear-gradient(135deg, #A8F0FF 0%, #FF9FFC 50%, #A8F0FF 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 4s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ========================================
    BASE RESET & DEFAULTS
    ======================================== */
 *,

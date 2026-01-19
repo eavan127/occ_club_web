@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="icon" href="./images/hackclubrait-logo.png" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <title>VeriDeep: AI Deepfake Detection | Eric Syamir</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/blogs.css">
+    <style>
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #A8F0FF;
+            border-radius: 50%;
+            opacity: 0;
+            animation: particle-float 15s infinite linear;
+        }
+
+        @keyframes particle-float {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(0deg);
+            }
+
+            10% {
+                opacity: 0.5;
+            }
+
+            90% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-10vh) rotate(720deg);
+            }
+        }
+
+        .article-hero {
+            padding: 10rem 2rem 3rem;
+            background: linear-gradient(180deg, rgba(168, 240, 255, 0.08) 0%, transparent 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(ellipse, rgba(168, 240, 255, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: translateX(-50%) scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
+
+        .article-badge {
+            display: inline-block;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, rgba(168, 240, 255, 0.15) 0%, rgba(255, 159, 252, 0.1) 100%);
+            border: 1px solid rgba(168, 240, 255, 0.4);
+            border-radius: 50px;
+            color: #A8F0FF;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            animation: badge-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes badge-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(168, 240, 255, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(168, 240, 255, 0.4);
+            }
+        }
+
+        .article-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .article-title span {
+            background: linear-gradient(135deg, #A8F0FF 0%, #FF9FFC 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+            margin-top: 1.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .meta-item i {
+            color: #A8F0FF;
+            font-size: 1.1rem;
+        }
+
+        .meta-item a {
+            color: #A8F0FF;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .meta-item a:hover {
+            color: #FF9FFC;
+            text-decoration: none;
+        }
+
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .article-content h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(168, 240, 255, 0.3);
+            position: relative;
+        }
+
+        .article-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #A8F0FF 0%, #FF9FFC 100%);
+        }
+
+        .article-content p {
+            margin-bottom: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .article-content strong {
+            color: #A8F0FF;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(168, 240, 255, 0.12) 0%, rgba(255, 159, 252, 0.06) 100%);
+            border: 1px solid rgba(168, 240, 255, 0.25);
+            border-left: 4px solid #A8F0FF;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-box:hover {
+            border-color: rgba(168, 240, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateX(5px);
+        }
+
+        .highlight-box h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #A8F0FF;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .highlight-box li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        .highlight-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #A8F0FF;
+            font-weight: bold;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(168, 240, 255, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+
+        .feature-card:hover {
+            background: rgba(168, 240, 255, 0.1);
+            border-color: rgba(168, 240, 255, 0.5);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(168, 240, 255, 0.15);
+        }
+
+        .feature-card i {
+            font-size: 2.2rem;
+            color: #A8F0FF;
+            margin-bottom: 0.8rem;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover i {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 10px rgba(168, 240, 255, 0.6));
+        }
+
+        .feature-card h5 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .quote-block {
+            background: linear-gradient(135deg, rgba(255, 159, 252, 0.12) 0%, rgba(168, 240, 255, 0.06) 100%);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(255, 159, 252, 0.2);
+        }
+
+        .quote-block::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 25px;
+            font-size: 5rem;
+            font-family: Georgia, serif;
+            color: rgba(168, 240, 255, 0.2);
+            line-height: 1;
+        }
+
+        .quote-block p {
+            font-size: 1.4rem;
+            font-weight: 500;
+            font-style: italic;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .article-cta {
+            background: linear-gradient(135deg, rgba(168, 240, 255, 0.12) 0%, rgba(255, 159, 252, 0.12) 100%);
+            border: 1px solid rgba(168, 240, 255, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(168, 240, 255, 0.05), transparent 30%);
+            animation: rotate-cta 8s linear infinite;
+        }
+
+        @keyframes rotate-cta {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .article-cta h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #A8F0FF 0%, #7DD8F0 100%);
+            color: #0A0A0A;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 20px rgba(168, 240, 255, 0.4);
+        }
+
+        .cta-btn:hover {
+            background: linear-gradient(135deg, #C5F5FF 0%, #A8F0FF 100%);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(168, 240, 255, 0.5);
+            color: #0A0A0A;
+            text-decoration: none;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .back-link:hover {
+            color: #A8F0FF;
+            text-decoration: none;
+            background: rgba(168, 240, 255, 0.1);
+            transform: translateX(-5px);
+        }
+
+        /* Scroll reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-hero {
+                padding: 8rem 1.5rem 2rem;
+            }
+
+            .article-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quote-block p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="scroll_bar_visible">
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <nav class="nav navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="progress-container">
+            <div class="progress-bar" id="myBar"></div>
+        </div>
+        <a class="header" href="index.html">
+            <img id="logo" src="./images/opportunities images/OCC Logo.png" />
+            <div class="logo_header">
+                <span style="color: #A8F0FF">Open Computing Club</span>
+            </div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbars navbar-nav ml-auto">
+                <li><a href="index.html" class="hover-line nav navbars">HOME</a></li>
+                <li><a href="ongoing.html" class="hover-line nav navbars">ONGOING EVENTS</a></li>
+                <li><a href="past.html" class="hover-line nav navbars">PAST EVENTS</a></li>
+                <li><a href="team.html" class="hover-line nav navbars">HIGH COMMITTEES</a></li>
+                <li><a href="contributer.html" class="hover-line nav navbars">COMMITTEES</a></li>
+                <li><a href="blogs.html" class="active hover-line nav navbars">BLOGS</a></li>
+                <li><a href="contact.html" class="hover-line nav navbars">JOIN US</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Article Hero -->
+    <header class="article-hero">
+        <span class="article-badge" data-aos="fade-down">🏆 Petronas Hackathon Winner</span>
+        <h1 class="article-title" data-aos="fade-up" data-aos-delay="100">
+            How LLM Helped Me Win:<br><span>Building VeriDeep</span>
+        </h1>
+        <div class="article-meta" data-aos="fade-up" data-aos-delay="200">
+            <span class="meta-item"><i class="ri-user-star-line"></i> Eric Syamir</span>
+            <span class="meta-item"><i class="ri-github-line"></i> <a
+                    href="https://github.com/EricSyamir/petronascybersec" target="_blank">View on GitHub</a></span>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-container">
+        <a href="blogs.html" class="back-link"><i class="ri-arrow-left-line"></i> Back to Blogs</a>
+
+        <article class="article-content">
+
+            <h2 class="reveal">The Problem</h2>
+            <p class="reveal">With AI improving daily, it's becoming harder to tell if videos and photos are real or
+                AI-generated. I built <strong>VeriDeep</strong> — a multi-layered deepfake detection platform that
+                helped me win the Petronas Cybercrime Hackathon.</p>
+
+            <h2 class="reveal">My Winning Strategy: LLM for Transcript Analysis</h2>
+            <p class="reveal">Most teams only analyzed visuals. I realized something key: <strong>scammers reveal
+                    themselves through what they SAY</strong>, not just how they look.</p>
+            <p class="reveal">Using <strong>Google Gemini 2.0 Flash</strong>, I analyzed video transcripts to catch scam
+                patterns that visual-only systems miss. This LLM-first approach was my secret weapon.</p>
+
+            <div class="highlight-box reveal">
+                <h4><i class="ri-lightbulb-flash-line"></i> Why This Worked</h4>
+                <ul>
+                    <li>LLM understands context and nuance — catches subtle red flags</li>
+                    <li>Detects scam language like "I need money urgently"</li>
+                    <li>Works across multiple languages</li>
+                    <li>Complements visual detection for higher accuracy</li>
+                </ul>
+            </div>
+
+            <h2 class="reveal">The Multi-AI Approach</h2>
+            <p class="reveal">VeriDeep combines multiple detection methods — like checking for lies by looking at face,
+                body language, and story coherence together:</p>
+
+            <div class="feature-grid reveal">
+                <div class="feature-card">
+                    <i class="ri-video-line"></i>
+                    <h5>Visual Analysis</h5>
+                </div>
+                <div class="feature-card">
+                    <i class="ri-chat-voice-line"></i>
+                    <h5>Speech Analysis</h5>
+                </div>
+                <div class="feature-card">
+                    <i class="ri-fingerprint-line"></i>
+                    <h5>Forensic Detection</h5>
+                </div>
+                <div class="feature-card">
+                    <i class="ri-file-text-line"></i>
+                    <h5>Transcript Analysis</h5>
+                </div>
+            </div>
+
+            <h2 class="reveal">Key Features</h2>
+            <div class="highlight-box reveal">
+                <ul>
+                    <li>Confidence scores (0-100%) with breakdown</li>
+                    <li>Drag-and-drop upload with real-time progress</li>
+                    <li>Images: under 5 seconds • Videos: 30-60 seconds</li>
+                    <li>Chrome Extension for browser-based scanning</li>
+                </ul>
+            </div>
+
+            <h2 class="reveal">Key Takeaways</h2>
+            <p class="reveal"><strong>AI works best in combination.</strong> No single model is perfect, but combining
+                them intelligently achieves remarkable accuracy.</p>
+            <p class="reveal"><strong>Context matters.</strong> What someone says is often more revealing than how they
+                look.</p>
+
+            <div class="quote-block reveal">
+                <p>LLM isn't just for chatbots — it's a powerful cybersecurity tool.</p>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="article-cta reveal">
+                <h3>🚀 Explore VeriDeep</h3>
+                <a href="https://github.com/EricSyamir/petronascybersec" target="_blank" class="cta-btn">
+                    <i class="ri-github-fill"></i> View on GitHub
+                </a>
+            </div>
+
+            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.5); text-align: center;" class="reveal">
+                <em>By Eric Syamir • Petronas Cybercrime Hackathon 2025</em>
+            </p>
+
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-elegant">
+        <div class="footer-container">
+            <div class="footer-top-row">
+                <div class="footer-brand-area">
+                    <div class="brand-row">
+                        <img src="./images/opportunities images/OCC Logo.png" alt="OCC Logo" class="footer-logo-sw">
+                        <span class="brand-name">OPEN COMPUTING CLUB</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="footer-heading">NAVIGATION</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="ongoing.html">ONGOING EVENTS</a></li>
+                        <li><a href="past.html">PAST EVENTS</a></li>
+                        <li><a href="team.html">HIGH COMMITTEES</a></li>
+                        <li><a href="contributer.html">COMMITTEES</a></li>
+                        <li><a href="blogs.html" class="active">BLOGS</a></li>
+                        <li><a href="contact.html">JOIN US</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">HEADQUARTERS</h4>
+                    <address class="footer-address">
+                        UNIVERSITI TEKNOLOGI PETRONAS<br>
+                        32610 SERI ISKANDAR<br>
+                        PERAK, MALAYSIA
+                    </address>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">REACH OUT</h4>
+                    <div class="footer-contact">
+                        <span class="footer-contact-name">Hannah Jeevan</span>
+                        <div class="footer-contact-links">
+                            <a href="tel:+60111451531" class="footer-phone">+60 11-1145 1531</a>
+                            <a href="https://wa.me/60111451531" target="_blank" class="footer-whatsapp"
+                                title="Chat on WhatsApp"><i class="ri-whatsapp-line"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-contact">
+                        <span class="footer-contact-name">Harresh Varma</span>
+                        <div class="footer-contact-links">
+                            <a href="tel:+60163274613" class="footer-phone">+60 16-327 4613</a>
+                            <a href="https://wa.me/60163274613" target="_blank" class="footer-whatsapp"
+                                title="Chat on WhatsApp"><i class="ri-whatsapp-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 OPEN COMPUTING CLUB. ALL RIGHTS RESERVED.
+                </div>
+                <div class="footer-socials">
+                    <a href="https://github.com/HackClubRAIT" target="_blank" class="social-btn"><i
+                            class="ri-github-fill"></i></a>
+                    <a href="https://www.instagram.com/utp.occ" target="_blank" class="social-btn"><i
+                            class="ri-instagram-line"></i></a>
+                    <a href="https://www.linkedin.com/company/open-computing-club/" target="_blank"
+                        class="social-btn"><i class="ri-linkedin-fill"></i></a>
+                    <a href="https://discord.gg/YOUR_INVITE_CODE" target="_blank" class="social-btn"><i
+                            class="ri-discord-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/click-spark.js"></script>
+    <script src="js/blur-text.js"></script>
+    <script src="js/gradual-blur.js"></script>
+    <script src="page-transition.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 800, once: true });
+
+        // Progress bar
+        document.getElementById("myBar").style.background = "#A8F0FF";
+        window.onscroll = function () {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+
+            // Scroll reveal animation
+            revealOnScroll();
+        };
+
+        // Click Spark Effect
+        document.addEventListener("DOMContentLoaded", function () {
+            new ClickSpark({
+                root: document.body,
+                sparkColor: '#A8F0FF',
+                sparkSize: 15,
+                sparkRadius: 20,
+                sparkCount: 12,
+                duration: 400
+            });
+
+            // Create floating particles
+            createParticles();
+
+            // Initial reveal check
+            revealOnScroll();
+        });
+
+        // Scroll Reveal Animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Floating Particles Animation
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 25;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+
+                const size = 2 + Math.random() * 3;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+
+                const hue = Math.random() > 0.5 ? '186' : '300';
+                particle.style.background = `hsl(${hue}, 100%, 75%)`;
+
+                container.appendChild(particle);
+            }
+        }
+
+        // Parallax effect on hero
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.article-hero');
+            const scrolled = window.pageYOffset;
+            if (hero) {
+                hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+            }
+        });
+    </script>
+</body>
+
+</html>
